@@ -51,9 +51,9 @@ Create Table TaiKhoan
 (
 	MSNV VARCHAR(20),
 	TenTaiKhoan VARCHAR(25),
-	MatKhau NVARCHAR(128),
-	ChiaKhoa NVARCHAR(128),
-	IV NVARCHAR(128),
+	MatKhau VARBINARY,
+	ChiaKhoa VARBINARY,
+	IV VARBINARY,
 	Constraint TK_PK Primary Key(MSNV)
 )
 
@@ -163,30 +163,14 @@ Insert into NhanVien
 Values('NV09', N'Nguyễn Hoài Lâm', 1)
 Insert into NhanVien
 Values('NV10', N'Lâm Thục Tường Vi', 1)
+Insert into NhanVien
+Values('NV11', N'Huỳnh Kha Tường', 1)
 
 --Nhập dữ liệu bảng Account
-Insert into TaiKhoan
-Values('NV01', 'admin', null, null, null)
-Insert into TaiKhoan
-Values('NV02', 'user1', null)
-Insert into TaiKhoan
-Values('NV03', 'user2', null)
-Insert into TaiKhoan
-Values('NV04', 'user3', null)
-Insert into TaiKhoan
-Values('NV05', N'user4', null)
-Insert into TaiKhoan
-Values('NV06', N'user5', null)
-Insert into TaiKhoan
-Values('NV07', 'user6', null)
-Insert into TaiKhoan
-Values('NV08', 'user7', null)
-Insert into TaiKhoan
-Values('NV09', 'user8', null)
-Insert into TaiKhoan
-Values('NV10', 'user9', null)
+--Nhập bằng app Sale Game
+
 --Nhập dữ liệu bảng Nhập Kho
 
 select * from TaiKhoan
 
-Drop table TaiKhoan
+drop table TaiKhoan 
