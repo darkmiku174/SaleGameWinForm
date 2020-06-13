@@ -1,0 +1,10 @@
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\bin\Debug\SaleGameAPP.exe.config
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\bin\Debug\SaleGameAPP.exe
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\bin\Debug\SaleGameAPP.pdb
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.csprojAssemblyReference.cache
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.Properties.Resources.resources
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.csproj.GenerateResource.cache
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.csproj.CoreCompileInputs.cache
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.exe
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.pdb
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.FormLogin.resources
