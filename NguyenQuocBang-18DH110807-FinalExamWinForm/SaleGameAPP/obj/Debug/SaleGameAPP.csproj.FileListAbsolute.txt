@@ -10,3 +10,6 @@ D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalEx
 D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.FormLogin.resources
 D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.FormCreateNewAccount.resources
 D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.FormForgetPassword.resources
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.FormHome.resources
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\bin\Debug\FontAwesome.Sharp.dll
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.csproj.CopyComplete

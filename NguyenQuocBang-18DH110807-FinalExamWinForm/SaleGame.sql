@@ -51,9 +51,7 @@ Create Table TaiKhoan
 (
 	MSNV VARCHAR(20),
 	TenTaiKhoan VARCHAR(25),
-	MatKhau VARBINARY,
-	ChiaKhoa VARBINARY,
-	IV VARBINARY,
+	MatKhau NVARCHAR(128),
 	Constraint TK_PK Primary Key(MSNV)
 )
 
@@ -168,9 +166,12 @@ Values('NV11', N'Huỳnh Kha Tường', 1)
 
 --Nhập dữ liệu bảng Account
 --Nhập bằng app Sale Game
+Insert into TaiKhoan
+values('NV01','admin',N'Bangbang123')
 
 --Nhập dữ liệu bảng Nhập Kho
 
-select * from TaiKhoan
 
-drop table TaiKhoan 
+
+delete from TaiKhoan
+

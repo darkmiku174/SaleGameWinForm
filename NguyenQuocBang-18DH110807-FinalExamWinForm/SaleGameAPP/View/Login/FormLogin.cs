@@ -21,17 +21,35 @@ namespace SaleGameAPP
             if (tbUser.Text != "")
             {
                 cbRePass.Checked = true;
-                tbPass.Text = dp.DecryptPass(tbUser.Text);
+                //tbPass.Text = dp.DeHashPass(tbUser.Text);
             }
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = tbUser.Text;
             string pass = tbPass.Text;
-            if (dp.DecryptPass(username) == pass)
-                MessageBox.Show("Login Successful");
+            /*if(cbRePass.Checked)
+            {
+                if (dp.DeHashPass(username) == pass)
+                    MessageBox.Show("Login Successful");
+                else
+                    MessageBox.Show("Login Failed");
+            }
             else
-                MessageBox.Show("Login Failed");
+            {
+                PasswordHash hash = new PasswordHash(pass,salt);
+                byte[] hashBytes = hash.ToArray();
+                //string hashPass = PasswordHash.OutputHash(hashBytes);
+                //if (dp.DeHashPass(username) == hashPass)
+                    //MessageBox.Show("Login Successful");
+                //else
+                    //MessageBox.Show("Login Failed");
+            }*/
+            this.Enabled = false;
+            this.Visible = false;
+            FormHome formHome = new FormHome();
+            formHome.Show();
+            formHome.FormClosed += new FormClosedEventHandler(OnCloseForm);
         }
 
         private void cbRePass_CheckedChanged(object sender, EventArgs e)

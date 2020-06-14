@@ -57,6 +57,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.13.0\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,24 +74,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
-    <Compile Include="FormCreateNewAccount.cs">
+    <Compile Include="View\Login\FormCreateNewAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCreateNewAccount.Designer.cs">
+    <Compile Include="View\Login\FormCreateNewAccount.Designer.cs">
       <DependentUpon>FormCreateNewAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormForgetPassword.cs">
+    <Compile Include="View\Login\FormForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForgetPassword.Designer.cs">
+    <Compile Include="View\Login\FormForgetPassword.Designer.cs">
       <DependentUpon>FormForgetPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="View\Home\FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="View\Home\FormHome.Designer.cs">
+      <DependentUpon>FormHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="Model\DonHang.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\HoaDon.cs" />
@@ -97,13 +107,46 @@
     <Compile Include="Model\TaiKhoan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCreateNewAccount.resx">
+    <Compile Include="View\Service\FormBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormBill.Designer.cs">
+      <DependentUpon>FormBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Service\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Service\FormGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormGame.Designer.cs">
+      <DependentUpon>FormGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Service\FormOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormOrder.Designer.cs">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Service\FormWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormWorker.Designer.cs">
+      <DependentUpon>FormWorker.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Login\FormCreateNewAccount.resx">
       <DependentUpon>FormCreateNewAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormForgetPassword.resx">
+    <EmbeddedResource Include="View\Login\FormForgetPassword.resx">
       <DependentUpon>FormForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="View\Home\FormHome.resx">
+      <DependentUpon>FormHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,6 +158,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
