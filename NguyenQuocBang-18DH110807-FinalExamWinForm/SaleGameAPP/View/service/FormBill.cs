@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SaleGameAPP.View.service
+namespace SaleGameAPP.View.Service
 {
     public partial class FormBill : Form
     {

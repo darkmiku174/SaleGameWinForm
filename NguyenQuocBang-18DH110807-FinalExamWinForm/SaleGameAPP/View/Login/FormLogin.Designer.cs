@@ -1,4 +1,4 @@
-﻿namespace SaleGameAPP
+﻿namespace SaleGameAPP.View.Login
 {
     partial class FormLogin
     {

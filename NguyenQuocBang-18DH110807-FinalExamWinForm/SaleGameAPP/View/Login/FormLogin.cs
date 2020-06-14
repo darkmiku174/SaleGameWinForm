@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace SaleGameAPP
+namespace SaleGameAPP.View.Login
 {
     public partial class FormLogin : Form
     {
@@ -47,7 +47,7 @@ namespace SaleGameAPP
             }*/
             this.Enabled = false;
             this.Visible = false;
-            FormHome formHome = new FormHome();
+            SaleGameAPP.View.Home.FormHome formHome = new SaleGameAPP.View.Home.FormHome();
             formHome.Show();
             formHome.FormClosed += new FormClosedEventHandler(OnCloseForm);
         }

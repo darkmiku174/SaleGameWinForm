@@ -1,4 +1,4 @@
-﻿namespace SaleGameAPP.View.service
+﻿namespace SaleGameAPP.View.Service
 {
     partial class FormDashboard
     {

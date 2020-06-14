@@ -1,4 +1,4 @@
-﻿namespace SaleGameAPP
+﻿namespace SaleGameAPP.View.Home
 {
     partial class FormHome
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
@@ -46,7 +47,10 @@
             this.iconBtnMax = new FontAwesome.Sharp.IconPictureBox();
             this.iconBtnExit = new FontAwesome.Sharp.IconPictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.panelHome = new System.Windows.Forms.Panel();
+            this.lbTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -56,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnExit)).BeginInit();
             this.panelDesktop.SuspendLayout();
+            this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -338,18 +343,44 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(17)))), ((int)(((byte)(18)))));
-            this.panelDesktop.Controls.Add(this.pictureBox1);
+            this.panelDesktop.Controls.Add(this.panelHome);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(320, 100);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(1162, 653);
             this.panelDesktop.TabIndex = 7;
             // 
+            // panelHome
+            // 
+            this.panelHome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelHome.Controls.Add(this.lbTime);
+            this.panelHome.Controls.Add(this.pictureBox1);
+            this.panelHome.Location = new System.Drawing.Point(315, 134);
+            this.panelHome.Name = "panelHome";
+            this.panelHome.Size = new System.Drawing.Size(511, 350);
+            this.panelHome.TabIndex = 15;
+            // 
+            // lbTime
+            // 
+            this.lbTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbTime.AutoSize = true;
+            this.lbTime.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(172)))), ((int)(((byte)(220)))));
+            this.lbTime.Location = new System.Drawing.Point(54, 276);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(31, 32);
+            this.lbTime.TabIndex = 20;
+            this.lbTime.Text = "1";
+            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(366, 169);
+            this.pictureBox1.Location = new System.Drawing.Point(80, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(97, 10, 97, 10);
@@ -357,6 +388,10 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormHome
             // 
@@ -383,6 +418,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnExit)).EndInit();
             this.panelDesktop.ResumeLayout(false);
+            this.panelHome.ResumeLayout(false);
+            this.panelHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -407,5 +444,8 @@
         private FontAwesome.Sharp.IconPictureBox iconBtnMin;
         private FontAwesome.Sharp.IconPictureBox iconBtnMax;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbTime;
+        private System.Windows.Forms.Panel panelHome;
+        private System.Windows.Forms.Timer timer1;
     }
 }

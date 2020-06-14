@@ -173,5 +173,5 @@ values('NV01','admin',N'Bangbang123')
 
 
 
-delete from TaiKhoan
+SELECT * From Game where MSHH='G001'
 

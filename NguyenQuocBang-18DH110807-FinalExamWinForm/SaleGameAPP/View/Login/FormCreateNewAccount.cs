@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
-namespace SaleGameAPP
+namespace SaleGameAPP.View.Login
 {
     public partial class FormCreateNewAccount : Form
     {

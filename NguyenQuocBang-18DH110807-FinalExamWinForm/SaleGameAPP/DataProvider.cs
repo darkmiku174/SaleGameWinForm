@@ -14,7 +14,7 @@ namespace SaleGameAPP
     {
         private readonly string connectionString =
             "Data Source=Desktop-3KCQBD3\\SQLEXPRESS; Database=SaleGame; Trusted_Connection=True";
-        public void HashPass(string username ,string pass)
+        public void HashPass(string username, string pass)
         {
             string queryString = @"Update TaiKhoan
                                    Set MatKhauHash=@pass, Salt=@salt
@@ -243,6 +243,36 @@ namespace SaleGameAPP
                 }
             }
             HashPass(username, password);
+        }
+        public List<Model.Game> TableGame()
+        {
+            List<Model.Game> dsThucUong = new List<Model.Game>();
+            string queryString = @"SELECT MSHH, TenGame, Gia, TinhTrang From Game";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Model.Game mGame = new Model.Game();
+                        mGame.MSHH = reader[0].ToString();
+                        mGame.TenGame = reader[1].ToString();
+                        mGame.Gia = int.Parse(reader[2].ToString());
+                        mGame.TinhTrang = bool.Parse(reader[3].ToString());
+                        dsThucUong.Add(mGame);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                return dsThucUong;
+            }
         }
     }
 }

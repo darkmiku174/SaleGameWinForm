@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SaleGameAPP
+namespace SaleGameAPP.View.Login
 {
     public partial class FormForgetPassword : Form
     {

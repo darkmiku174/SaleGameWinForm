@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
 
-namespace SaleGameAPP
+namespace SaleGameAPP.View.Home
 {
     public partial class FormHome : Form
     {
@@ -20,6 +20,7 @@ namespace SaleGameAPP
         public FormHome()
         {
             InitializeComponent();
+            timer1.Start();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -102,31 +103,31 @@ namespace SaleGameAPP
         private void btnOrder_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            //OpenChildForm(new FormTest());
+            OpenChildForm(new SaleGameAPP.View.Service.FormOrder());
         }
 
         private void btnGame_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            //OpenChildForm(new FormGame());
+            OpenChildForm(new SaleGameAPP.View.Service.FormGame());
         }
 
         private void btnManageWorker_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            //OpenChildForm(new FormWorker());
+            OpenChildForm(new SaleGameAPP.View.Service.FormWorker());
         }
 
         private void btnManageBill_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            //OpenChildForm(new FormBill());
+            OpenChildForm(new SaleGameAPP.View.Service.FormBill());
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            //OpenChildForm(new FormDashboard());
+            OpenChildForm(new SaleGameAPP.View.Service.FormDashboard());
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -176,6 +177,11 @@ namespace SaleGameAPP
                 FormBorderStyle = FormBorderStyle.None;
             else
                 FormBorderStyle = FormBorderStyle.Sizable;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToString();
         }
     }
 }
