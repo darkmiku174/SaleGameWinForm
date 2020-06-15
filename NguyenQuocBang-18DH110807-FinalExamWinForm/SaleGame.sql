@@ -173,5 +173,5 @@ values('NV01','admin',N'Bangbang123')
 
 
 
-delete from Game where MSHH='G030'
+Select * from Game Where TenGame like N'demon souls'
 

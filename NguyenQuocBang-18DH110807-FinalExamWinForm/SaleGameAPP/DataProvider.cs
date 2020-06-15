@@ -309,10 +309,21 @@ namespace SaleGameAPP
         }
         public void UpdateGame(string oldMSHH, string newMSHH, string TenGame, string HinhAnh, int Gia, bool TinhTrang)
         {
-            string queryString =
-                @"Update THUCUONG 
+            string queryString = null;
+            if (HinhAnh !="")
+            {
+                queryString =
+                @"Update Game 
                   Set MSHH=@newMSHH, TenGame=@TenGame, HinhAnh=@HinhAnh, Gia=@Gia, TinhTrang=@TinhTrang
                   Where MSHH=@oldMSHH";
+            }
+            else
+            {
+                queryString =
+               @"Update Game 
+                  Set MSHH=@newMSHH, TenGame=@TenGame, Gia=@Gia, TinhTrang=@TinhTrang
+                  Where MSHH=@oldMSHH";
+            }
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -322,14 +333,17 @@ namespace SaleGameAPP
                 command.Parameters.AddWithValue("@TenGame", TenGame);
                 command.Parameters.AddWithValue("@Gia", Gia);
                 command.Parameters.AddWithValue("@TinhTrang", TinhTrang);
-                byte[] img = null;
-                FileStream fs = new FileStream(HinhAnh, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                img = br.ReadBytes((int)fs.Length);
-                if (connection.State != ConnectionState.Open)
-                    connection.Open();
-                command.Parameters.Add(new SqlParameter("@HinhAnh", img));
-                int x = command.ExecuteNonQuery();
+                if(HinhAnh != "")
+                {
+                    byte[] img = null;
+                    FileStream fs = new FileStream(HinhAnh, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    img = br.ReadBytes((int)fs.Length);
+                    if (connection.State != ConnectionState.Open)
+                        connection.Open();
+                    command.Parameters.Add(new SqlParameter("@HinhAnh", img));
+                    int x = command.ExecuteNonQuery();
+                }
                 try
                 {
                     connection.Open();
@@ -342,10 +356,10 @@ namespace SaleGameAPP
                 }
             }
         }
-        public void RemoveTHUCUONG(string MSHH)
+        public void DeleteGame(string MSHH)
         {
             string queryString =
-                "Delete from THUCUONG Where MSHH=@MSHH";
+                @"Delete from Game Where MSHH=@MSHH";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -361,6 +375,95 @@ namespace SaleGameAPP
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }
+        }
+        public DataTable SearchGame(string TenGameSearch)
+        {
+            DataTable dttb = new DataTable();
+            string queryString = @"SELECT MSHH, TenGame, Gia, TinhTrang From Game Where TenGame like @TenGameSearch";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.SelectCommand.Parameters.AddWithValue("@TenGameSearch", "%" + TenGameSearch + "%");
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public DataTable SelectMenuGame()
+        {
+            DataTable dttb = new DataTable();
+            string queryString = @"SELECT MSHH, TenGame, Gia, TinhTrang From Game";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public List<string> CreateAutoCompelteSearch()
+        {
+            List<string> myCollection = new List<string>();
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("Select TenGame Game From Game", connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        myCollection.Add(reader[0].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return myCollection;
+        }
+        public bool CheckExistGame(string MSHH)
+        {
+            string queryString =
+                "SELECT MSHH From Game Where MSHH=@MSHH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader[0].ToString() == "")
+                            return true;
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                return false;
             }
         }
     }
