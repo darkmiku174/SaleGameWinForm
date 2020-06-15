@@ -16,15 +16,20 @@ namespace SaleGameAPP.View.Service
     {
         private readonly string connectionString =
             "Data Source=Desktop-3KCQBD3\\SQLEXPRESS; Database=SaleGame; Trusted_Connection=True";
+        string oldMSHH = "";
+        string imgLoc = "";
         public FormGame()
         {
-            InitializeComponent();
-            ShowDataGridView();
-            ShowInfo("G021");
+            InitializeComponent();   
         }
-        private void ShowInfo(string MSHH)
+        private void FormGame_Load(object sender, EventArgs e)
         {
-            string queryString = @"SELECT * From Game where MSHH=@MSHH";
+            ShowDataGridView();
+        }
+
+        private void ShowImg(string MSHH)
+        {
+            string queryString = @"SELECT HinhAnh From Game where MSHH=@MSHH";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -36,9 +41,7 @@ namespace SaleGameAPP.View.Service
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        tbMSHH.Text = reader[0].ToString();
-                        tbTenGame.Text = reader[1].ToString();
-                        byte[] img = (byte[])reader[2];
+                        byte[] img = (byte[])reader[0];
                         if (img != null)
                         {
                             MemoryStream ms = new MemoryStream(img);
@@ -46,8 +49,6 @@ namespace SaleGameAPP.View.Service
                         }
                         else
                             pictureImgGame.Image = null;
-                        tbGia.Text = reader[3].ToString();
-                        rdExist.Checked = bool.Parse(reader[4].ToString());
                     }
                     reader.Close();
                 }
@@ -77,5 +78,68 @@ namespace SaleGameAPP.View.Service
             }
         }
 
+        private void dgvGame_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvGame.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dgvGame.CurrentRow.Selected = true;
+                tbMSHH.Text = dgvGame.Rows[e.RowIndex].Cells["MSHH"].Value.ToString();
+                tbTenGame.Text = dgvGame.Rows[e.RowIndex].Cells["TenGame"].Value.ToString();
+                ShowImg(tbMSHH.Text);
+                tbGia.Text = dgvGame.Rows[e.RowIndex].Cells["Gia"].Value.ToString();
+                rdExist.Checked = bool.Parse(dgvGame.Rows[e.RowIndex].Cells["TinhTrang"].Value.ToString());
+                rdNotExist.Checked = !rdExist.Checked;
+                oldMSHH = tbMSHH.Text;
+            }
+        }
+        private void btnBrowser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
+                dlg.Filter = "JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif|PNG Files (*.png)|*.png|All File (*.*)|*.*";
+                dlg.Title = "Select Game's Picture Which You Want To Add";
+                if(dlg.ShowDialog()==DialogResult.OK)
+                {
+                    imgLoc = dlg.FileName.ToString();
+                    pictureImgGame.ImageLocation = imgLoc;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            DataProvider dp = new DataProvider();
+            int gia = Int32.Parse(tbGia.Text);
+            dp.AddGame(tbMSHH.Text, tbTenGame.Text, imgLoc, gia, rdExist.Checked);
+            ShowDataGridView();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DataProvider dp = new DataProvider();
+            int gia = Int32.Parse(tbGia.Text);
+            try
+            {
+                dp.UpdateGame(oldMSHH, tbMSHH.Text, tbTenGame.Text, imgLoc, gia, rdExist.Checked);
+                ShowDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

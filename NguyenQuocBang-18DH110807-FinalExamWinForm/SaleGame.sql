@@ -173,5 +173,5 @@ values('NV01','admin',N'Bangbang123')
 
 
 
-SELECT * From Game where MSHH='G001'
+delete from Game where MSHH='G030'
 

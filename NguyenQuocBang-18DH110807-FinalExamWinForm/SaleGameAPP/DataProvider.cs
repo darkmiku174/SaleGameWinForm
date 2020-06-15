@@ -274,5 +274,94 @@ namespace SaleGameAPP
                 return dsThucUong;
             }
         }
+        public void AddGame(string MSHH, string TenGame, string HinhAnh, int Gia, bool TinhTrang)
+        {
+            string queryString =
+                @"Insert into Game 
+                  Values(@MSHH, @TenGame, @HinhAnh, @Gia, @TinhTrang)";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSHH", MSHH);
+                command.Parameters.AddWithValue("@TenGame", TenGame);
+                command.Parameters.AddWithValue("@Gia", Gia);
+                command.Parameters.AddWithValue("@TinhTrang", TinhTrang);
+                byte[] img = null;
+                FileStream fs = new FileStream(HinhAnh, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+                command.Parameters.Add(new SqlParameter("@HinhAnh", img));
+                int x = command.ExecuteNonQuery();
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void UpdateGame(string oldMSHH, string newMSHH, string TenGame, string HinhAnh, int Gia, bool TinhTrang)
+        {
+            string queryString =
+                @"Update THUCUONG 
+                  Set MSHH=@newMSHH, TenGame=@TenGame, HinhAnh=@HinhAnh, Gia=@Gia, TinhTrang=@TinhTrang
+                  Where MSHH=@oldMSHH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@oldMSHH", oldMSHH);
+                command.Parameters.AddWithValue("@newMSHH", newMSHH);
+                command.Parameters.AddWithValue("@TenGame", TenGame);
+                command.Parameters.AddWithValue("@Gia", Gia);
+                command.Parameters.AddWithValue("@TinhTrang", TinhTrang);
+                byte[] img = null;
+                FileStream fs = new FileStream(HinhAnh, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+                command.Parameters.Add(new SqlParameter("@HinhAnh", img));
+                int x = command.ExecuteNonQuery();
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void RemoveTHUCUONG(string MSHH)
+        {
+            string queryString =
+                "Delete from THUCUONG Where MSHH=@MSHH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSHH", MSHH);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
     }
 }
