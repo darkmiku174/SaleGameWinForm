@@ -366,11 +366,11 @@
             // 
             this.lbTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTime.AutoSize = true;
-            this.lbTime.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(172)))), ((int)(((byte)(220)))));
             this.lbTime.Location = new System.Drawing.Point(54, 276);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(31, 32);
+            this.lbTime.Size = new System.Drawing.Size(32, 35);
             this.lbTime.TabIndex = 20;
             this.lbTime.Text = "1";
             this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -403,6 +403,7 @@
             this.Controls.Add(this.panelShadow);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";

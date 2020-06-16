@@ -137,8 +137,50 @@ Insert into Game
 values('G029', 'Total War Sage: Troy', (SELECT * FROM OPENROWSET(BULK N'D:\BaiTapTruong\Lập trình windows\FinalExam\PictuerGame\totalwartroy.jpg', SINGLE_CLOB) as Image), 1200000, 0)
 
 --Nhập dữ liệu bảng đơn hàng
+Insert into DonHang
+Values('HD1', 'G001', 1, 0)
+Insert into DonHang
+Values('HD1', 'G003', 2, 0)
+Insert into DonHang
+Values('HD1', 'G002', 1, 0)
+Insert into DonHang
+Values('HD1', 'G004', 3, 0)
+Insert into DonHang
+Values('HD2', 'G011', 1, 0)
+Insert into DonHang
+Values('HD2', 'G017', 1, 0)
+Insert into DonHang
+Values('HD3', 'G025', 3, 10)
+Insert into DonHang
+Values('HD4', 'G027', 1, 0)
+Insert into DonHang
+Values('HD4', 'G023', 1, 20)
+Insert into DonHang
+Values('HD5', 'G003', 1, 0)
+Insert into DonHang
+Values('HD5', 'G010', 2, 0)
+Insert into DonHang
+Values('HD6', 'G005', 5, 20)
+Insert into DonHang
+Values('HD6', 'G001', 1, 0)
+Insert into DonHang
+Values('HD6', 'G013', 1, 0)
+Insert into DonHang
+Values('HD6', 'G009', 1, 0)
 
 --Nhập dữ liệu bảng hoá đơn
+Insert into HoaDon
+Values('HD1', 'NV02', '2019-8-13 8:30:15')
+Insert into HoaDon
+Values('HD2', 'NV02', '2019-8-17 18:3:45')
+Insert into HoaDon
+Values('HD3', 'NV05', '2019-8-17 20:50:02')
+Insert into HoaDon
+Values('HD4', 'NV07', '2019-8-18 16:33:15')
+Insert into HoaDon
+Values('HD5', 'NV04', '2019-8-23 10:24:18')
+Insert into HoaDon
+Values('HD6', 'NV05', '2019-8-25 13:07:57')
 
 --Nhập dữ liệu bảng Nhân viên
 Insert into NhanVien
@@ -167,11 +209,20 @@ Values('NV11', N'Huỳnh Kha Tường', 1)
 --Nhập dữ liệu bảng Account
 --Nhập bằng app Sale Game
 Insert into TaiKhoan
-values('NV01','admin',N'Bangbang123')
+values('NV01','admin',N'Bangbang@123')
 
 --Nhập dữ liệu bảng Nhập Kho
 
 
 
-Select * from Game Where TenGame like N'demon souls'
+Select * from HoaDon
+Select * from DonHang
+Select DonHang.MSHH, TenGame, Gia, SoLuong, TiLeGiam, Gia*SoLuong*(100-TiLeGiam)/100 As ThanhTien 
+from DonHang, Game 
+where DonHang.MSHH=Game.MSHH 
+	and MSDH='HD4'
 
+delete DonHang
+from DonHang 
+inner join HoaDon on DonHang.MSDH=HoaDon.MSDH where 
+DonHang.MSDH='HD1'

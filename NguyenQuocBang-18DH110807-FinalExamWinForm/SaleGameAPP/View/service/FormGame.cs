@@ -8,19 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
 namespace SaleGameAPP.View.Service
 {
     public partial class FormGame : Form
     {
-        private readonly string connectionString =
-            "Data Source=Desktop-3KCQBD3\\SQLEXPRESS; Database=SaleGame; Trusted_Connection=True";
         string oldMSHH = "";
         string imgLoc = "";
         AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
-        private event EventHandler search;
         public FormGame()
         {
             InitializeComponent();   
@@ -30,6 +26,7 @@ namespace SaleGameAPP.View.Service
             rdExist.Checked = true;
             ShowDataGridView();
             AutoCompleteSearch();
+            ShowInfo();
         }
         private void Clear()
         {
@@ -66,34 +63,24 @@ namespace SaleGameAPP.View.Service
         }
         private void ShowImg(string MSHH)
         {
-            string queryString = @"SELECT HinhAnh From Game where MSHH=@MSHH";
-            using (SqlConnection connection =
-                new SqlConnection(connectionString))
+            DataProvider dp = new DataProvider();
+            byte[] img = dp.ImageGame(MSHH);
+            if (img != null)
             {
-                try
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(queryString, connection);
-                    command.Parameters.AddWithValue("@MSHH", MSHH);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        byte[] img = (byte[])reader[0];
-                        if (img != null)
-                        {
-                            MemoryStream ms = new MemoryStream(img);
-                            pictureImgGame.Image = Image.FromStream(ms);
-                        }
-                        else
-                            pictureImgGame.Image = null;
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                MemoryStream ms = new MemoryStream(img);
+                pictureImgGame.Image = Image.FromStream(ms);
             }
+            else
+                pictureImgGame.Image = null;
+        }
+        private void ShowInfo()
+        {
+            tbMSHH.Text = dgvGame.Rows[0].Cells["MSHH"].Value.ToString();
+            tbTenGame.Text = dgvGame.Rows[0].Cells["TenGame"].Value.ToString();
+            ShowImg(tbMSHH.Text);
+            tbGia.Text = dgvGame.Rows[0].Cells["Gia"].Value.ToString();
+            rdExist.Checked = bool.Parse(dgvGame.Rows[0].Cells["TinhTrang"].Value.ToString());
+            rdNotExist.Checked = !rdExist.Checked;
         }
         private void ShowDataGridView()
         {
@@ -140,9 +127,7 @@ namespace SaleGameAPP.View.Service
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if(!CheckInput())
-            {
                 return;
-            }
             DataProvider dp = new DataProvider();
             if (!dp.CheckExistGame(tbMSHH.Text))
             {
@@ -154,6 +139,7 @@ namespace SaleGameAPP.View.Service
             ShowDataGridView();
             myCollection.Add(tbTenGame.Text);
             tbSearch.AutoCompleteCustomSource = myCollection;
+            Clear();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -173,6 +159,7 @@ namespace SaleGameAPP.View.Service
             ShowDataGridView();
             myCollection.Add(tbTenGame.Text);
             tbSearch.AutoCompleteCustomSource = myCollection;
+            Clear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -200,13 +187,18 @@ namespace SaleGameAPP.View.Service
                 DataTable dttb = dp.SearchGame(tbSearch.Text);
                 dgvGame.DataSource = dttb;
             }
-            
-
         }
 
-        private void tbSearch_Enter(object sender, EventArgs e)
+        private void tbSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            dgvGame.Rows[0].Selected = true;
+            if(e.KeyCode==Keys.Enter || e.KeyCode==Keys.Right)
+                if (dgvGame.Rows[0].Cells[0].Value != null)
+                    ShowInfo();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -188,6 +188,7 @@
             this.Controls.Add(this.picPass);
             this.Controls.Add(this.picUser);
             this.Controls.Add(this.picLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

@@ -86,6 +86,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SaleGameDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SaleGameDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleGameDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\Login\FormCreateNewAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +178,9 @@
     <EmbeddedResource Include="View\Service\FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Service\FormOrder.resx">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -205,6 +213,17 @@
     </None>
     <None Include="SaleGameDataSet.xss">
       <DependentUpon>SaleGameDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SaleGameDataSet1.xsc">
+      <DependentUpon>SaleGameDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SaleGameDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SaleGameDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SaleGameDataSet1.xss">
+      <DependentUpon>SaleGameDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

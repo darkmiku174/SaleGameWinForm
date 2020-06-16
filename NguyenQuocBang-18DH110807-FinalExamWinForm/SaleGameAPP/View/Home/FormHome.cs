@@ -103,31 +103,36 @@ namespace SaleGameAPP.View.Home
         private void btnOrder_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new SaleGameAPP.View.Service.FormOrder());
+            SaleGameAPP.View.Service.FormOrder formOrder = new Service.FormOrder();
+            OpenChildForm(formOrder);
         }
 
         private void btnGame_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new SaleGameAPP.View.Service.FormGame());
+            SaleGameAPP.View.Service.FormGame formGame = new Service.FormGame();
+            OpenChildForm(formGame);
         }
 
         private void btnManageWorker_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new SaleGameAPP.View.Service.FormWorker());
+            SaleGameAPP.View.Service.FormWorker formWorker = new Service.FormWorker();
+            OpenChildForm(formWorker);
         }
 
         private void btnManageBill_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new SaleGameAPP.View.Service.FormBill());
+            SaleGameAPP.View.Service.FormBill formBill = new Service.FormBill();
+            OpenChildForm(formBill);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            OpenChildForm(new SaleGameAPP.View.Service.FormDashboard());
+            SaleGameAPP.View.Service.FormDashboard formDashboard = new Service.FormDashboard();
+            OpenChildForm(formDashboard);
         }
 
         private void btnHelp_Click(object sender, EventArgs e)

@@ -244,36 +244,6 @@ namespace SaleGameAPP
             }
             HashPass(username, password);
         }
-        public List<Model.Game> TableGame()
-        {
-            List<Model.Game> dsThucUong = new List<Model.Game>();
-            string queryString = @"SELECT MSHH, TenGame, Gia, TinhTrang From Game";
-            using (SqlConnection connection =
-                new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Model.Game mGame = new Model.Game();
-                        mGame.MSHH = reader[0].ToString();
-                        mGame.TenGame = reader[1].ToString();
-                        mGame.Gia = int.Parse(reader[2].ToString());
-                        mGame.TinhTrang = bool.Parse(reader[3].ToString());
-                        dsThucUong.Add(mGame);
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                return dsThucUong;
-            }
-        }
         public void AddGame(string MSHH, string TenGame, string HinhAnh, int Gia, bool TinhTrang)
         {
             string queryString =
@@ -397,6 +367,32 @@ namespace SaleGameAPP
             }
             return dttb;
         }
+        public byte[] ImageGame(string MSHH)
+        {
+            string queryString = @"SELECT HinhAnh From Game where MSHH=@MSHH";
+            byte[] img = null;
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(queryString, connection);
+                    command.Parameters.AddWithValue("@MSHH", MSHH);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        img = (byte[])reader[0];       
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return img;
+        }
         public DataTable SelectMenuGame()
         {
             DataTable dttb = new DataTable();
@@ -464,6 +460,73 @@ namespace SaleGameAPP
                     Console.WriteLine(ex.Message);
                 }
                 return false;
+            }
+        }
+        public DataTable SelectCart(string MSDH)
+        {
+            DataTable dttb = new DataTable();
+            string queryString = 
+                @"Select DonHang.MSHH, TenGame, Gia, SoLuong, TiLeGiam, Gia*SoLuong*(100-TiLeGiam)/100 As ThanhTien 
+                  From DonHang, Game 
+                  Where DonHang.MSHH=Game.MSHH 
+	                and MSDH=@MSDH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.SelectCommand.Parameters.AddWithValue("@MSDH", MSDH);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public void DeleteGameInCart(string MSDH, string MSHH)
+        {
+            string queryString =
+                @"Delete from DonHang Where MSDH=@MSDH And MSHH=@MSHH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSDH", MSDH);
+                command.Parameters.AddWithValue("@MSHH", MSHH);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void DeleteCart(string MSDH)
+        {
+            string queryString =
+                @"Delete from DonHang Where MSDH=@MSDH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSDH", MSDH);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }
