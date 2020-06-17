@@ -54,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNewBill = new FontAwesome.Sharp.IconButton();
             this.btnOrder = new FontAwesome.Sharp.IconButton();
             this.btnUpdate = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new FontAwesome.Sharp.IconButton();
@@ -176,7 +177,7 @@
             this.btnBrowser.Size = new System.Drawing.Size(165, 41);
             this.btnBrowser.TabIndex = 3;
             this.btnBrowser.Text = "Browser";
-            this.btnBrowser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBrowser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBrowser.UseVisualStyleBackColor = false;
             this.btnBrowser.Click += new System.EventHandler(this.btnBrowser_Click);
@@ -281,6 +282,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.panel1.Controls.Add(this.btnNewBill);
             this.panel1.Controls.Add(this.btnOrder);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnAdd);
@@ -290,6 +292,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1144, 114);
             this.panel1.TabIndex = 15;
+            // 
+            // btnNewBill
+            // 
+            this.btnNewBill.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnNewBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnNewBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewBill.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnNewBill.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
+            this.btnNewBill.IconChar = FontAwesome.Sharp.IconChar.Bible;
+            this.btnNewBill.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
+            this.btnNewBill.IconSize = 28;
+            this.btnNewBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewBill.Location = new System.Drawing.Point(955, 29);
+            this.btnNewBill.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNewBill.Name = "btnNewBill";
+            this.btnNewBill.Rotation = 0D;
+            this.btnNewBill.Size = new System.Drawing.Size(165, 41);
+            this.btnNewBill.TabIndex = 8;
+            this.btnNewBill.Text = "New Bill";
+            this.btnNewBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewBill.UseVisualStyleBackColor = false;
+            this.btnNewBill.Click += new System.EventHandler(this.btnNewBill_Click);
             // 
             // btnOrder
             // 
@@ -302,13 +328,13 @@
             this.btnOrder.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             this.btnOrder.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
             this.btnOrder.IconSize = 28;
-            this.btnOrder.Location = new System.Drawing.Point(900, 29);
+            this.btnOrder.Location = new System.Drawing.Point(778, 29);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Rotation = 0D;
             this.btnOrder.Size = new System.Drawing.Size(150, 41);
             this.btnOrder.TabIndex = 7;
             this.btnOrder.Text = "Order";
-            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -331,7 +357,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -354,7 +380,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.TabStop = false;
             this.btnAdd.Text = "Add";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -376,7 +402,7 @@
             this.btnDelete.Size = new System.Drawing.Size(150, 41);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -413,7 +439,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Teal;
             this.dgvGame.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGame.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvGame.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dgvGame.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
             this.dgvGame.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGame.CausesValidation = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -511,5 +537,6 @@
         private FontAwesome.Sharp.IconButton btnUpdate;
         private FontAwesome.Sharp.IconButton btnAdd;
         private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnNewBill;
     }
 }

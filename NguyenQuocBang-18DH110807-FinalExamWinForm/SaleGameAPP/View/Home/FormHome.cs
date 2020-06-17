@@ -14,9 +14,13 @@ namespace SaleGameAPP.View.Home
 {
     public partial class FormHome : Form
     {
+        private static string mSNV = "NV01";
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+
+        public static string MSNV { get => mSNV; set => mSNV = value; }
+
         public FormHome()
         {
             InitializeComponent();

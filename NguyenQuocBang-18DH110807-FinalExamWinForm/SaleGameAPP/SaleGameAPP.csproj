@@ -130,6 +130,12 @@
     <Compile Include="View\Service\FormBill.Designer.cs">
       <DependentUpon>FormBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Service\FormCreateBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormCreateBill.Designer.cs">
+      <DependentUpon>FormCreateBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Service\FormDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Service\FormBill.resx">
+      <DependentUpon>FormBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Service\FormCreateBill.resx">
+      <DependentUpon>FormCreateBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Service\FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>

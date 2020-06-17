@@ -15,3 +15,5 @@ D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalEx
 D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.View.Login.FormLogin.resources
 D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.View.Service.FormGame.resources
 D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.View.Service.FormOrder.resources
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.View.Service.FormCreateBill.resources
+D:\BaiTapTruong\Lập trình windows\FinalExam\NguyenQuocBang-18DH110807-FinalExamWinForm\SaleGameAPP\obj\Debug\SaleGameAPP.View.Service.FormBill.resources

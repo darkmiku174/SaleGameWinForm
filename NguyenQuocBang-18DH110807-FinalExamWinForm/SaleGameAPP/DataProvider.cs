@@ -412,7 +412,7 @@ namespace SaleGameAPP
             }
             return dttb;
         }
-        public List<string> CreateAutoCompelteSearch()
+        public List<string> CreateAutoCompleteSearch()
         {
             List<string> myCollection = new List<string>();
             using (SqlConnection connection =
@@ -460,6 +460,112 @@ namespace SaleGameAPP
                     Console.WriteLine(ex.Message);
                 }
                 return false;
+            }
+        }
+        private string CreateAutoNewMSDH()
+        {
+            string queryString =
+                @"Select top 1 MSDH From HoaDon Order By MSDH Desc";
+            string lastMSDH = "";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                       lastMSDH = reader[0].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            string tempMSDH = "";
+            for (int i = 2; i < lastMSDH.Length; i++)
+                tempMSDH += lastMSDH[i];
+            string newMSDH = "HD" + (Int32.Parse(tempMSDH) + 1).ToString();
+            return newMSDH;
+        }
+        public string CurrentMSDH()
+        {
+            string queryString =
+                @"Select top 1 MSDH From HoaDon Order By MSDH Desc";
+            string lastMSDH = "";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lastMSDH = reader[0].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lastMSDH;
+        }
+        public void CreateBill(string MSNV, DateTime NgayDat)
+        {
+            string MSDH = CreateAutoNewMSDH();
+            string queryString =
+                @"Insert into HoaDon 
+                  Values(@MSDH, @MSNV, @NgayDat)";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSDH", MSDH);
+                command.Parameters.AddWithValue("@MSNV", MSNV);
+                command.Parameters.AddWithValue("@NgayDat", NgayDat);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void AddCart(string MSDH, string MSHH, int SoLuong, int TiLeGiam )
+        {
+            string queryString =
+                @"Insert into DonHang 
+                  Values(@MSDH, @MSHH, @SoLuong, @TiLeGiam)";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSDH", MSDH);
+                command.Parameters.AddWithValue("@MSHH", MSHH);
+                command.Parameters.AddWithValue("@SoLuong", SoLuong);
+                command.Parameters.AddWithValue("@TiLeGiam", TiLeGiam);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
         public DataTable SelectCart(string MSDH)
@@ -510,6 +616,11 @@ namespace SaleGameAPP
         }
         public void DeleteCart(string MSDH)
         {
+            DeleteDonHang(MSDH);
+            DeleteHoaDon(MSDH);
+        }
+        private void DeleteDonHang(string MSDH)
+        {
             string queryString =
                 @"Delete from DonHang Where MSDH=@MSDH";
             using (SqlConnection connection =
@@ -528,6 +639,49 @@ namespace SaleGameAPP
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+        private void DeleteHoaDon(string MSDH)
+        {
+            string queryString =
+                @"Delete from HoaDon Where MSDH=@MSDH";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSDH", MSDH);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public DataTable SelectBill()
+        {
+            DataTable dttb = new DataTable();
+            string queryString =
+                @"Select MSDH, TenNV, NgayDat 
+                  From HoaDon, NhanVien 
+                  Where HoaDon.MSNV=NhanVien.MSNV";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
         }
     }
 }

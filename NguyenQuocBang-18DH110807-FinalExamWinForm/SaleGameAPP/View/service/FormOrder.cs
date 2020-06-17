@@ -12,13 +12,16 @@ namespace SaleGameAPP.View.Service
 {
     public partial class FormOrder : Form
     {
+        private string MSDH = "";
         public FormOrder()
         {
             InitializeComponent();
         }
         private void FormOrder_Load(object sender, EventArgs e)
         {
-            ShowDataGridView("HD1");
+            DataProvider dp = new DataProvider();
+            MSDH = dp.CurrentMSDH();
+            ShowDataGridView(MSDH);
             MoneyNeedToBuy();
         }
         private void ShowDataGridView(string MSDH)
@@ -48,8 +51,8 @@ namespace SaleGameAPP.View.Service
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DataProvider dp = new DataProvider();
-            dp.DeleteGameInCart("HD1", dgvCart.CurrentRow.Cells["MSHH"].Value.ToString());
-            ShowDataGridView("HD1");
+            dp.DeleteGameInCart(MSDH, dgvCart.CurrentRow.Cells["MSHH"].Value.ToString());
+            ShowDataGridView(MSDH);
             MoneyNeedToBuy();
         }
 
@@ -64,9 +67,14 @@ namespace SaleGameAPP.View.Service
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Do you want to delete cart?", "Warning", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.Cancel)
+                return;
+            DataProvider dp = new DataProvider();
+            dp.DeleteCart(MSDH);
+            DataTable dttb = new DataTable();
+            dgvCart.DataSource = dttb;
+            lbMoney.Text = "Tổng tiền:";
         }
-
-        
     }
 }

@@ -14,9 +14,9 @@ namespace SaleGameAPP.View.Service
 {
     public partial class FormGame : Form
     {
-        string oldMSHH = "";
-        string imgLoc = "";
-        AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
+        private string oldMSHH = "";
+        private string imgLoc = "";
+        private AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
         public FormGame()
         {
             InitializeComponent();   
@@ -50,12 +50,17 @@ namespace SaleGameAPP.View.Service
                 MessageBox.Show("Please type number at Gia!!!");
                 return false;
             }
+            if (Int32.Parse(tbGia.Text) <= 0)
+            {
+                MessageBox.Show("Please type number bigger than 0");
+                return false;
+            }
             return true;
         }
         private void AutoCompleteSearch()
         {
             DataProvider dp = new DataProvider();
-            List<string> autocomplete = dp.CreateAutoCompelteSearch();
+            List<string> autocomplete = dp.CreateAutoCompleteSearch();
             AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
             for (int i = 0; i < autocomplete.Count; i++)
                 myCollection.Add(autocomplete[i]);
@@ -164,6 +169,9 @@ namespace SaleGameAPP.View.Service
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Do you want to delete game?", "Warning", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.Cancel)
+                return;
             DataProvider dp = new DataProvider();
             dp.DeleteGame(tbMSHH.Text);
             ShowDataGridView();
@@ -198,7 +206,22 @@ namespace SaleGameAPP.View.Service
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            bool notExist = rdNotExist.Checked;
+            if(notExist)
+            {
+                MessageBox.Show("Out of stock");
+                return;
+            }
+            string MSHH = dgvGame.CurrentRow.Cells["MSHH"].Value.ToString();
+            SaleGameAPP.View.Service.FormCreateBill formBill = new View.Service.FormCreateBill(MSHH);
+            formBill.Show();
+        }
 
+        private void btnNewBill_Click(object sender, EventArgs e)
+        {
+            DataProvider dp = new DataProvider();
+            dp.CreateBill(SaleGameAPP.View.Home.FormHome.MSNV, DateTime.Now);
+            MessageBox.Show("You created new bill");
         }
     }
 }

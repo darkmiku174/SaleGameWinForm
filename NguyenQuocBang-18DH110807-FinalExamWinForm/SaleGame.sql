@@ -217,12 +217,8 @@ values('NV01','admin',N'Bangbang@123')
 
 Select * from HoaDon
 Select * from DonHang
-Select DonHang.MSHH, TenGame, Gia, SoLuong, TiLeGiam, Gia*SoLuong*(100-TiLeGiam)/100 As ThanhTien 
-from DonHang, Game 
-where DonHang.MSHH=Game.MSHH 
-	and MSDH='HD4'
 
-delete DonHang
-from DonHang 
-inner join HoaDon on DonHang.MSDH=HoaDon.MSDH where 
-DonHang.MSDH='HD1'
+select top 1 MSDH from HoaDon Order by MSDH Desc
+
+Delete From DonHang where MSDH='HD7'
+Delete from HoaDon where MSDH='HD7'
