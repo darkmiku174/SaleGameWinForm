@@ -1,8 +1,4 @@
-﻿--Xoá database
-use master ;
-go
-drop database SaleGame
-
+﻿
 Create DataBase SaleGame
 Go
 Use SaleGame
@@ -42,6 +38,7 @@ Create Table NhanVien
 (
 	MSNV VARCHAR(20),
 	TenNV NVARCHAR(50),
+	GioiTinh bit, -- 1 là nữ, 0 là nam
 	Loai BIT, --1 là nhân viên, 0 là chủ
 	Constraint NV_MSNV_PK Primary Key(MSNV)
 )
@@ -50,19 +47,18 @@ Create Table NhanVien
 Create Table TaiKhoan
 (
 	MSNV VARCHAR(20),
-	TenTaiKhoan VARCHAR(25),
 	MatKhau NVARCHAR(128),
 	Constraint TK_PK Primary Key(MSNV)
 )
 
---Tạo bảng Nhập kho
-Create Table NhapKho
+--Tạo bảng Lịch sử login logout
+Create Table LichSuLogin
 (
-    MSNK VARCHAR(20),
-	MSHH VARCHAR(20),
+	ID VARCHAR(20),
 	MSNV VARCHAR(20),
-    NgayNhap DATETIME,
-	Constraint NK_PK Primary Key(MSNK)
+    Login DATETIME,
+	Logout DATETIME,
+	Constraint NK_PK Primary Key(ID)
 )
 
 --Tạo khoá ngoại
@@ -73,8 +69,8 @@ alter table HoaDon add constraint HD_MSNV_FK foreign key(MSNV) references NhanVi
 
 alter table TaiKhoan add constraint TK_MSNV_FK foreign key(MSNV) references NhanVien(MSNV)
 
-alter table NhapKho add constraint NK_MSNV_FK foreign key(MSNV) references NhanVien(MSNV)
-alter table NhapKho add constraint NK_MSHH_FK foreign key(MSHH) references Game(MSHH)
+alter table LichSuLogin add constraint LS_MSNV_FK foreign key(MSNV) references NhanVien(MSNV)
+
 
 --Nhập dữ liệu cho bảng thức uống
 Insert into Game
@@ -136,6 +132,74 @@ values('G028', 'Total War: Three Kingdom Lady Trieu', (SELECT * FROM OPENROWSET(
 Insert into Game
 values('G029', 'Total War Sage: Troy', (SELECT * FROM OPENROWSET(BULK N'D:\BaiTapTruong\Lập trình windows\FinalExam\PictuerGame\totalwartroy.jpg', SINGLE_CLOB) as Image), 1200000, 0)
 
+--Nhập dữ liệu bảng Nhân viên
+Insert into NhanVien
+Values('NV01', N'Nguyễn Quốc Bằng', 0, 0)
+Insert into NhanVien
+Values('NV02', N'Bùi Nguyên Phúc', 0, 1)
+Insert into NhanVien
+Values('NV03', N'Đỗ Đức Minh', 0, 1)
+Insert into NhanVien
+Values('NV04', N'Huỳnh Thanh Hoài', 0, 1)
+Insert into NhanVien
+Values('NV05', N'Nguyễn Thanh Minh Duy', 0, 1)
+Insert into NhanVien
+Values('NV06', N'Nguyễn Trường An', 0, 1)
+Insert into NhanVien
+Values('NV07', N'Trần Trung Chiến', 0, 1)
+Insert into NhanVien
+Values('NV08', N'Võ Hoài Lâm', 0, 1)
+Insert into NhanVien
+Values('NV09', N'Nguyễn Hoài Lâm', 0, 1)
+Insert into NhanVien
+Values('NV10', N'Lâm Thục Tường Vi', 1, 1)
+Insert into NhanVien
+Values('NV11', N'Huỳnh Kha Tường', 1, 1)
+Insert into NhanVien
+Values('NV12', N'Nguyễn Phước An', 1, 1)
+
+--Nhập dữ liệu bảng Account
+Insert into TaiKhoan
+Values('NV01',N'Bangbang@123')
+
+--Nhập dữ liệu login logout
+Insert into LichSuLogin
+Values('1','NV01','2019/8/8 9:30:03', '2019/8/8 21:05:00')
+Insert into LichSuLogin
+Values('2','NV02','2019/8/13 7:30:03', '2019/8/13 14:00:45')
+Insert into LichSuLogin
+Values('3','NV05','2019/8/13 14:05:13', '2019/8/13 21:00:45')
+Insert into LichSuLogin
+Values('4','NV03','2019/8/14 7:31:42', '2019/8/14 14:10:35')
+Insert into LichSuLogin
+Values('5','NV05','2019/8/14 14:15:12', '2019/8/14 21:10:35')
+Insert into LichSuLogin
+Values('6','NV02','2019/8/15 7:29:22', '2019/8/15 14:05:15')
+Insert into LichSuLogin
+Values('7','NV04','2019/8/15 14:7:19', '2019/8/15 21:00:15')
+Insert into LichSuLogin
+Values('8','NV02','2019/8/16 7:30:24', '2019/8/16 14:03:31')
+Insert into LichSuLogin
+Values('9','NV04','2019/8/16 14:7:50', '2019/8/16 21:10:15')
+Insert into LichSuLogin
+Values('10','NV02','2019/8/17 7:33:04', '2019/8/17 14:08:36')
+Insert into LichSuLogin
+Values('11','NV03','2019/8/17 14:10:05', '2019/8/17 21:00:15')
+
+--Nhập dữ liệu bảng hoá đơn
+Insert into HoaDon
+Values('HD1', 'NV02', '2019/8/13 8:30:15')
+Insert into HoaDon
+Values('HD2', 'NV02', '2019/8/17 8:3:45')
+Insert into HoaDon
+Values('HD3', 'NV05', '2019/8/17 20:50:02')
+Insert into HoaDon
+Values('HD4', 'NV07', '2019/8/18 16:33:15')
+Insert into HoaDon
+Values('HD5', 'NV04', '2019/8/23 10:24:18')
+Insert into HoaDon
+Values('HD6', 'NV05', '2019/8/25 13:07:57')
+
 --Nhập dữ liệu bảng đơn hàng
 Insert into DonHang
 Values('HD1', 'G001', 1, 0)
@@ -168,57 +232,12 @@ Values('HD6', 'G013', 1, 0)
 Insert into DonHang
 Values('HD6', 'G009', 1, 0)
 
---Nhập dữ liệu bảng hoá đơn
-Insert into HoaDon
-Values('HD1', 'NV02', '2019-8-13 8:30:15')
-Insert into HoaDon
-Values('HD2', 'NV02', '2019-8-17 18:3:45')
-Insert into HoaDon
-Values('HD3', 'NV05', '2019-8-17 20:50:02')
-Insert into HoaDon
-Values('HD4', 'NV07', '2019-8-18 16:33:15')
-Insert into HoaDon
-Values('HD5', 'NV04', '2019-8-23 10:24:18')
-Insert into HoaDon
-Values('HD6', 'NV05', '2019-8-25 13:07:57')
-
---Nhập dữ liệu bảng Nhân viên
-Insert into NhanVien
-Values('NV01', N'Nguyễn Quốc Bằng', 0)
-Insert into NhanVien
-Values('NV02', N'Bùi Nguyên Phúc', 1)
-Insert into NhanVien
-Values('NV03', N'Đỗ Đức Minh', 1)
-Insert into NhanVien
-Values('NV04', N'Huỳnh Thanh Hoài', 1)
-Insert into NhanVien
-Values('NV05', N'Nguyễn Thanh Minh Duy', 1)
-Insert into NhanVien
-Values('NV06', N'Nguyễn Trường An', 1)
-Insert into NhanVien
-Values('NV07', N'Trần Trung Chiến', 1)
-Insert into NhanVien
-Values('NV08', N'Võ Hoài Lâm', 1)
-Insert into NhanVien
-Values('NV09', N'Nguyễn Hoài Lâm', 1)
-Insert into NhanVien
-Values('NV10', N'Lâm Thục Tường Vi', 1)
-Insert into NhanVien
-Values('NV11', N'Huỳnh Kha Tường', 1)
-
---Nhập dữ liệu bảng Account
---Nhập bằng app Sale Game
-Insert into TaiKhoan
-values('NV01','admin',N'Bangbang@123')
-
---Nhập dữ liệu bảng Nhập Kho
-
-
-
-Select * from HoaDon
-Select * from DonHang
-
-select top 1 MSDH from HoaDon Order by MSDH Desc
-
-Delete From DonHang where MSDH='HD7'
-Delete from HoaDon where MSDH='HD7'
+select MSNV, TenNV,
+case	
+	When GioiTinh=1 then N'Nữ'
+	else 'Nam' end as GioiTinh,
+case	
+	When Loai=1 then N'Nhân viên'
+	else N'Chủ' end as Loai 
+from NhanVien
+select * from NhanVien

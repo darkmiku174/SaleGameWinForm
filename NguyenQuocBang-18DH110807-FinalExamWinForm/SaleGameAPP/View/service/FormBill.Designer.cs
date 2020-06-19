@@ -41,12 +41,18 @@
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnShow = new FontAwesome.Sharp.IconButton();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
+            this.btnSearch = new FontAwesome.Sharp.IconPictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.dgvShowBill = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowBill)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +95,7 @@
             this.dgvBill.RowHeadersVisible = false;
             this.dgvBill.RowTemplate.Height = 24;
             this.dgvBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBill.Size = new System.Drawing.Size(561, 417);
+            this.dgvBill.Size = new System.Drawing.Size(568, 417);
             this.dgvBill.TabIndex = 23;
             // 
             // panel1
@@ -146,12 +152,75 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.panelTitle.Controls.Add(this.label2);
+            this.panelTitle.Controls.Add(this.label1);
+            this.panelTitle.Controls.Add(this.dateTimeEnd);
+            this.panelTitle.Controls.Add(this.dateTimeStart);
+            this.panelTitle.Controls.Add(this.btnSearch);
             this.panelTitle.Controls.Add(this.pictureBox1);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1144, 75);
             this.panelTitle.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(638, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 23);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "End:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(287, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 23);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Start:";
+            // 
+            // dateTimeEnd
+            // 
+            this.dateTimeEnd.CustomFormat = "yyyy-MM-dd";
+            this.dateTimeEnd.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeEnd.Location = new System.Drawing.Point(704, 22);
+            this.dateTimeEnd.Name = "dateTimeEnd";
+            this.dateTimeEnd.Size = new System.Drawing.Size(200, 27);
+            this.dateTimeEnd.TabIndex = 21;
+            this.dateTimeEnd.Value = new System.DateTime(2020, 6, 19, 0, 0, 0, 0);
+            // 
+            // dateTimeStart
+            // 
+            this.dateTimeStart.CustomFormat = "yyyy-MM-dd";
+            this.dateTimeStart.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeStart.Location = new System.Drawing.Point(368, 21);
+            this.dateTimeStart.Name = "dateTimeStart";
+            this.dateTimeStart.Size = new System.Drawing.Size(200, 27);
+            this.dateTimeStart.TabIndex = 20;
+            this.dateTimeStart.Value = new System.DateTime(2020, 6, 19, 0, 0, 0, 0);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnSearch.IconColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.IconSize = 42;
+            this.btnSearch.Location = new System.Drawing.Point(924, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(42, 42);
+            this.btnSearch.TabIndex = 19;
+            this.btnSearch.TabStop = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // pictureBox1
             // 
@@ -166,16 +235,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(561, 75);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(583, 417);
-            this.panel3.TabIndex = 24;
             // 
             // dgvShowBill
             // 
@@ -208,7 +267,7 @@
             this.dgvShowBill.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvShowBill.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvShowBill.EnableHeadersVisualStyles = false;
-            this.dgvShowBill.Location = new System.Drawing.Point(598, 75);
+            this.dgvShowBill.Location = new System.Drawing.Point(589, 75);
             this.dgvShowBill.Name = "dgvShowBill";
             this.dgvShowBill.ReadOnly = true;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -222,8 +281,18 @@
             this.dgvShowBill.RowHeadersVisible = false;
             this.dgvShowBill.RowTemplate.Height = 24;
             this.dgvShowBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShowBill.Size = new System.Drawing.Size(546, 417);
+            this.dgvShowBill.Size = new System.Drawing.Size(555, 417);
             this.dgvShowBill.TabIndex = 25;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.ForeColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(568, 75);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(576, 417);
+            this.panel3.TabIndex = 24;
             // 
             // FormBill
             // 
@@ -237,11 +306,13 @@
             this.Controls.Add(this.panelTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBill";
-            this.Text = "Bill";
+            this.Text = "Manage Bill";
             this.Load += new System.EventHandler(this.FormBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowBill)).EndInit();
             this.ResumeLayout(false);
@@ -256,7 +327,12 @@
         private FontAwesome.Sharp.IconButton btnShow;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvShowBill;
+        private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconPictureBox btnSearch;
+        private System.Windows.Forms.DateTimePicker dateTimeStart;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimeEnd;
     }
 }

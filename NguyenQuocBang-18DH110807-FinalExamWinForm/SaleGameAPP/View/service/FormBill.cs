@@ -39,7 +39,6 @@ namespace SaleGameAPP.View.Service
             string MSDH = dgvBill.CurrentRow.Cells["MSDH"].Value.ToString();
             ShowDataGridViewShowBill(MSDH);
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to delete bill?", "Warning", MessageBoxButtons.OKCancel);
@@ -51,5 +50,20 @@ namespace SaleGameAPP.View.Service
             ShowDataGridViewBill();
             dgvShowBill.DataSource = null;
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            DataProvider dp = new DataProvider();
+            DataTable dttb = new DataTable();
+            bool checkStartEnd = dateTimeStart.Text != dateTimeEnd.Text ? true : false;
+            if(checkStartEnd)
+            {
+                dttb = dp.SearchBillStartEnd(dateTimeStart.Text, dateTimeEnd.Text);
+            }
+            else
+            {
+                dttb = dp.SearchBillOneDay(dateTimeStart.Text);
+            }    
+            dgvBill.DataSource = dttb;
+        }    
     }
 }

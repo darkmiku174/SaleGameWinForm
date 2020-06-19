@@ -193,6 +193,9 @@
     <EmbeddedResource Include="View\Service\FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Service\FormWorker.resx">
+      <DependentUpon>FormWorker.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

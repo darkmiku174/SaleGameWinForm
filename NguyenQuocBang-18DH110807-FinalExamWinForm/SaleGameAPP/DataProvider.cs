@@ -667,7 +667,107 @@ namespace SaleGameAPP
             string queryString =
                 @"Select MSDH, TenNV, NgayDat 
                   From HoaDon, NhanVien 
-                  Where HoaDon.MSNV=NhanVien.MSNV";
+                  Where HoaDon.MSNV=NhanVien.MSNV
+                  Order By MSDH Desc";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public List<string> SelectNameNV()
+        {
+            List<string> lstName = new List<string>();
+            string queryString =
+                    @"Select TenNV From NhanVien";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lstName.Add(reader[0].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lstName;
+        }
+        public DataTable SearchBillOneDay(string ngayDat)
+        {
+            DataTable dttb = new DataTable();
+            string queryString =
+                @"Select MSDH, TenNV, NgayDat 
+                  From HoaDon, NhanVien 
+                  Where HoaDon.MSNV=NhanVien.MSNV
+                        And "+ "NgayDat between " + "'"+ngayDat+"'" +" and "+ "'"+ngayDat + " 23:59:59'";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public DataTable SearchBillStartEnd(string start, string end)
+        {
+            DataTable dttb = new DataTable();
+            string queryString =
+                @"Select MSDH, TenNV, NgayDat 
+                  From HoaDon, NhanVien 
+                  Where HoaDon.MSNV=NhanVien.MSNV
+                        And " + "NgayDat between " + "'" + start + "'" + " and " + "'" + end + " 23:59:59'";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public DataTable SelectWorker()
+        {
+            DataTable dttb = new DataTable();
+            string queryString =
+                @"select MSNV, TenNV,
+                  case	
+	                  When GioiTinh=1 then N'Nữ'
+	                  else 'Nam' end as GioiTinh,
+                  case	
+	                  When Loai=1 then N'Nhân viên'
+	                  else N'Chủ' end as Loai 
+                  from NhanVien";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
