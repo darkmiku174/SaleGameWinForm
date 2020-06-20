@@ -277,6 +277,36 @@ namespace SaleGameAPP
                 }
             }
         }
+        public void AddGame(string MSHH, string TenGame, byte[] HinhAnh, int Gia, bool TinhTrang)
+        {
+            string queryString =
+                @"Insert into Game 
+                  Values(@MSHH, @TenGame, @HinhAnh, @Gia, @TinhTrang)";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSHH", MSHH);
+                command.Parameters.AddWithValue("@TenGame", TenGame);
+                command.Parameters.AddWithValue("@Gia", Gia);
+                command.Parameters.AddWithValue("@TinhTrang", TinhTrang);
+                
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+                command.Parameters.Add(new SqlParameter("@HinhAnh", HinhAnh));
+                int x = command.ExecuteNonQuery();
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
         public void UpdateGame(string oldMSHH, string newMSHH, string TenGame, string HinhAnh, int Gia, bool TinhTrang)
         {
             string queryString = null;
@@ -444,13 +474,14 @@ namespace SaleGameAPP
                 new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSHH", MSHH);
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        if (reader[0].ToString() == "")
+                        if (reader[0] != null)
                             return true;
                     }
                     reader.Close();
@@ -458,9 +489,9 @@ namespace SaleGameAPP
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                }
-                return false;
+                }  
             }
+            return false;
         }
         private string CreateAutoNewMSDH()
         {
@@ -774,6 +805,123 @@ namespace SaleGameAPP
                 try
                 {
                     SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public bool CheckExistMSNV(string MSNV)
+        {
+            string queryString =
+                "SELECT MSNV From NhanVien Where MSNV=@MSNV";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSNV", MSNV);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader[0] != null) 
+                            return true;
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                } 
+            }
+            return false;
+        }
+        public void AddWorker(string MSNV, string hoTen, bool gioiTinh, bool loai)
+        {
+            string queryString =
+                @"Insert into NhanVien 
+                  Values(@MSNV, @TenNV, @GioiTinh, @Loai)";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSNV", MSNV);
+                command.Parameters.AddWithValue("@TenNV", hoTen);
+                command.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+                command.Parameters.AddWithValue("@Loai", loai);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void DeleteWorker(string MSNV)
+        {
+            string queryString =
+                @"Delete from NhanVien Where MSNV=@MSNV";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSNV", MSNV);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public DataTable SelectHistoryLogin()
+        {
+            DataTable dttb = new DataTable();
+            string queryString =
+                @"select * from LichSuLogin order by ID Desc";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.Fill(dttb);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return dttb;
+        }
+        public DataTable SelectHistoryLoginStartEnd(string start, string end)
+        {
+            DataTable dttb = new DataTable();
+            string queryString =
+                @"select * 
+                  from LichSuLogin
+                  where Date >= @Start and Date <= @End";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlDataAdapter sqlDa = new SqlDataAdapter(queryString, connection);
+                    sqlDa.SelectCommand.Parameters.AddWithValue("@Start", start);
+                    sqlDa.SelectCommand.Parameters.AddWithValue("@End", end);
                     sqlDa.Fill(dttb);
                 }
                 catch (Exception ex)

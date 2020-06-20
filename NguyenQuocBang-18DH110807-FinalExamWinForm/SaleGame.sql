@@ -54,10 +54,11 @@ Create Table TaiKhoan
 --Tạo bảng Lịch sử login logout
 Create Table LichSuLogin
 (
-	ID VARCHAR(20),
+	ID bigint,
 	MSNV VARCHAR(20),
-    Login DATETIME,
-	Logout DATETIME,
+    Event VARCHAR(6),
+	Date DATE,
+	Time TIME,
 	Constraint NK_PK Primary Key(ID)
 )
 
@@ -164,27 +165,49 @@ Values('NV01',N'Bangbang@123')
 
 --Nhập dữ liệu login logout
 Insert into LichSuLogin
-Values('1','NV01','2019/8/8 9:30:03', '2019/8/8 21:05:00')
+Values(1,'NV01', 'Login','2019/8/8', '9:30:03')
 Insert into LichSuLogin
-Values('2','NV02','2019/8/13 7:30:03', '2019/8/13 14:00:45')
+Values(2,'NV01','Logout','2019/8/8', '21:05:00')
 Insert into LichSuLogin
-Values('3','NV05','2019/8/13 14:05:13', '2019/8/13 21:00:45')
+Values(3,'NV02', 'Login','2019/8/13', '7:30:03')
 Insert into LichSuLogin
-Values('4','NV03','2019/8/14 7:31:42', '2019/8/14 14:10:35')
+Values(4,'NV02','Logout','2019/8/13', '14:00:45')
 Insert into LichSuLogin
-Values('5','NV05','2019/8/14 14:15:12', '2019/8/14 21:10:35')
+Values(5,'NV05', 'Login','2019/8/13', '14:05:13')
 Insert into LichSuLogin
-Values('6','NV02','2019/8/15 7:29:22', '2019/8/15 14:05:15')
+Values(6,'NV05','Logout','2019/8/13', '21:00:45')
 Insert into LichSuLogin
-Values('7','NV04','2019/8/15 14:7:19', '2019/8/15 21:00:15')
+Values(7,'NV03', 'Login','2019/8/14', '7:31:42')
 Insert into LichSuLogin
-Values('8','NV02','2019/8/16 7:30:24', '2019/8/16 14:03:31')
+Values(8,'NV03','Logout','2019/8/14', '14:10:35')
 Insert into LichSuLogin
-Values('9','NV04','2019/8/16 14:7:50', '2019/8/16 21:10:15')
+Values(9,'NV05', 'Login','2019/8/14', '14:15:12')
 Insert into LichSuLogin
-Values('10','NV02','2019/8/17 7:33:04', '2019/8/17 14:08:36')
+Values(10,'NV05','Logout','2019/8/14', '21:10:35')
 Insert into LichSuLogin
-Values('11','NV03','2019/8/17 14:10:05', '2019/8/17 21:00:15')
+Values(11,'NV02', 'Login','2019/8/15', '7:29:22')
+Insert into LichSuLogin
+Values(12,'NV02','Logout','2019/8/15', '14:05:15')
+Insert into LichSuLogin
+Values(13,'NV04', 'Login','2019/8/15', '14:7:19')
+Insert into LichSuLogin
+Values(14,'NV04','Logout','2019/8/15', '21:00:15')
+Insert into LichSuLogin
+Values(15,'NV02', 'Login','2019/8/16', '7:30:24')
+Insert into LichSuLogin
+Values(16,'NV02','Logout','2019/8/16', '14:03:31')
+Insert into LichSuLogin
+Values(17,'NV04', 'Login','2019/8/16', '14:7:50')
+Insert into LichSuLogin
+Values(18,'NV04','Logout','2019/8/16', '21:10:15')
+Insert into LichSuLogin
+Values(19,'NV02', 'Login','2019/8/17', '7:33:04')
+Insert into LichSuLogin
+Values(20,'NV02','Logout','2019/8/17', '14:08:36')
+Insert into LichSuLogin
+Values(21,'NV03', 'Login','2019/8/17', '14:10:05')
+Insert into LichSuLogin
+Values(22,'NV03','Logout','2019/8/17', '21:00:15')
 
 --Nhập dữ liệu bảng hoá đơn
 Insert into HoaDon
@@ -232,12 +255,7 @@ Values('HD6', 'G013', 1, 0)
 Insert into DonHang
 Values('HD6', 'G009', 1, 0)
 
-select MSNV, TenNV,
-case	
-	When GioiTinh=1 then N'Nữ'
-	else 'Nam' end as GioiTinh,
-case	
-	When Loai=1 then N'Nhân viên'
-	else N'Chủ' end as Loai 
-from NhanVien
-select * from NhanVien
+select * 
+from LichSuLogin
+where LichSuLogin.Date >= '2019-08-13'
+	 and LichSuLogin.Date <= '2019-08-15'

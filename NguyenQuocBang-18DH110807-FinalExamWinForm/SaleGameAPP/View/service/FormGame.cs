@@ -27,6 +27,7 @@ namespace SaleGameAPP.View.Service
             ShowDataGridView();
             AutoCompleteSearch();
             ShowInfo();
+            oldMSHH = dgvGame.CurrentRow.Cells["MSHH"].Value.ToString();
         }
         private void Clear()
         {
@@ -134,13 +135,21 @@ namespace SaleGameAPP.View.Service
             if(!CheckInput())
                 return;
             DataProvider dp = new DataProvider();
-            if (!dp.CheckExistGame(tbMSHH.Text))
+            if (dp.CheckExistGame(tbMSHH.Text))
             {
                 MessageBox.Show("MSHH is exist");
                 return;
             }
             int gia = Int32.Parse(tbGia.Text);
-            dp.AddGame(tbMSHH.Text, tbTenGame.Text, imgLoc, gia, rdExist.Checked);
+            if (imgLoc == "")
+            {
+                byte[] img = dp.ImageGame(oldMSHH);
+                dp.AddGame(tbMSHH.Text, tbTenGame.Text, img, gia, rdExist.Checked);
+            }
+            else
+            {
+                dp.AddGame(tbMSHH.Text, tbTenGame.Text, imgLoc, gia, rdExist.Checked);
+            }
             ShowDataGridView();
             myCollection.Add(tbTenGame.Text);
             tbSearch.AutoCompleteCustomSource = myCollection;
@@ -154,7 +163,8 @@ namespace SaleGameAPP.View.Service
                 return;
             }
             DataProvider dp = new DataProvider();
-            if (!dp.CheckExistGame(tbMSHH.Text))
+            string currentMSHH = tbMSHH.Text;
+            if (dp.CheckExistGame(tbMSHH.Text) && oldMSHH != currentMSHH) 
             {
                 MessageBox.Show("MSHH is exist");
                 return;

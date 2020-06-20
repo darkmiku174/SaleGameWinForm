@@ -39,7 +39,6 @@ namespace SaleGameAPP.View.Home
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
-            public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
         private void ActivateButton(object senderBtn, Color color)
@@ -131,14 +130,6 @@ namespace SaleGameAPP.View.Home
             SaleGameAPP.View.Service.FormBill formBill = new Service.FormBill();
             OpenChildForm(formBill);
         }
-
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color5);
-            SaleGameAPP.View.Service.FormDashboard formDashboard = new Service.FormDashboard();
-            OpenChildForm(formDashboard);
-        }
-
         private void btnHelp_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
@@ -161,33 +152,14 @@ namespace SaleGameAPP.View.Home
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void iconBtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void iconBtnMax_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-                WindowState = FormWindowState.Maximized;
-            else
-                WindowState = FormWindowState.Normal;
-        }
-
         private void iconBtnMin_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
-        private void FormHome_Resize(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-                FormBorderStyle = FormBorderStyle.None;
-            else
-                FormBorderStyle = FormBorderStyle.Sizable;
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbTime.Text = DateTime.Now.ToString();

@@ -124,6 +124,12 @@
     <Compile Include="Model\TaiKhoan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Service\FormAddWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Service\FormAddWorker.Designer.cs">
+      <DependentUpon>FormAddWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Service\FormBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,12 +141,6 @@
     </Compile>
     <Compile Include="View\Service\FormCreateBill.Designer.cs">
       <DependentUpon>FormCreateBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Service\FormDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Service\FormDashboard.Designer.cs">
-      <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Service\FormGame.cs">
       <SubType>Form</SubType>
@@ -181,6 +181,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Service\FormAddWorker.resx">
+      <DependentUpon>FormAddWorker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Service\FormBill.resx">
       <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>

@@ -291,7 +291,7 @@
             this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(568, 75);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(576, 417);
+            this.panel3.Size = new System.Drawing.Size(20, 417);
             this.panel3.TabIndex = 24;
             // 
             // FormBill

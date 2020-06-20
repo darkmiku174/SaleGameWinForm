@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
-            this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.btnManageBill = new FontAwesome.Sharp.IconButton();
             this.btnManageWorker = new FontAwesome.Sharp.IconButton();
             this.btnGame = new FontAwesome.Sharp.IconButton();
@@ -44,7 +43,6 @@
             this.lbTitleChildForm = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.iconBtnMin = new FontAwesome.Sharp.IconPictureBox();
-            this.iconBtnMax = new FontAwesome.Sharp.IconPictureBox();
             this.iconBtnExit = new FontAwesome.Sharp.IconPictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.panelHome = new System.Windows.Forms.Panel();
@@ -57,7 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBtnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnExit)).BeginInit();
             this.panelDesktop.SuspendLayout();
             this.panelHome.SuspendLayout();
@@ -68,7 +65,6 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Black;
             this.panelMenu.Controls.Add(this.btnHelp);
-            this.panelMenu.Controls.Add(this.btnDashboard);
             this.panelMenu.Controls.Add(this.btnManageBill);
             this.panelMenu.Controls.Add(this.btnManageWorker);
             this.panelMenu.Controls.Add(this.btnGame);
@@ -93,7 +89,7 @@
             this.btnHelp.IconColor = System.Drawing.Color.Gainsboro;
             this.btnHelp.IconSize = 32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(10, 440);
+            this.btnHelp.Location = new System.Drawing.Point(10, 380);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnHelp.Rotation = 0D;
@@ -104,30 +100,6 @@
             this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDashboard.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDashboard.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
-            this.btnDashboard.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnDashboard.IconSize = 32;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(10, 380);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnDashboard.Rotation = 0D;
-            this.btnDashboard.Size = new System.Drawing.Size(290, 60);
-            this.btnDashboard.TabIndex = 10;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnManageBill
             // 
@@ -284,7 +256,6 @@
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.Black;
             this.panelTitleBar.Controls.Add(this.iconBtnMin);
-            this.panelTitleBar.Controls.Add(this.iconBtnMax);
             this.panelTitleBar.Controls.Add(this.iconBtnExit);
             this.panelTitleBar.Controls.Add(this.lbTitleChildForm);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
@@ -302,28 +273,13 @@
             this.iconBtnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.iconBtnMin.IconColor = System.Drawing.Color.Gainsboro;
             this.iconBtnMin.IconSize = 48;
-            this.iconBtnMin.Location = new System.Drawing.Point(1018, 0);
+            this.iconBtnMin.Location = new System.Drawing.Point(1066, 0);
             this.iconBtnMin.Name = "iconBtnMin";
             this.iconBtnMin.Size = new System.Drawing.Size(48, 90);
             this.iconBtnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconBtnMin.TabIndex = 4;
             this.iconBtnMin.TabStop = false;
             this.iconBtnMin.Click += new System.EventHandler(this.iconBtnMin_Click);
-            // 
-            // iconBtnMax
-            // 
-            this.iconBtnMax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconBtnMax.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconBtnMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.iconBtnMax.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconBtnMax.IconSize = 48;
-            this.iconBtnMax.Location = new System.Drawing.Point(1066, 0);
-            this.iconBtnMax.Name = "iconBtnMax";
-            this.iconBtnMax.Size = new System.Drawing.Size(48, 90);
-            this.iconBtnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconBtnMax.TabIndex = 3;
-            this.iconBtnMax.TabStop = false;
-            this.iconBtnMax.Click += new System.EventHandler(this.iconBtnMax_Click);
             // 
             // iconBtnExit
             // 
@@ -408,7 +364,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.TopMost = true;
-            this.Resize += new System.EventHandler(this.FormHome_Resize);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
@@ -416,7 +372,6 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBtnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnExit)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
@@ -430,7 +385,6 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
         private FontAwesome.Sharp.IconButton btnOrder;
-        private FontAwesome.Sharp.IconButton btnDashboard;
         private FontAwesome.Sharp.IconButton btnManageBill;
         private FontAwesome.Sharp.IconButton btnManageWorker;
         private FontAwesome.Sharp.IconButton btnGame;
@@ -443,7 +397,6 @@
         private System.Windows.Forms.Panel panelDesktop;
         private FontAwesome.Sharp.IconPictureBox iconBtnExit;
         private FontAwesome.Sharp.IconPictureBox iconBtnMin;
-        private FontAwesome.Sharp.IconPictureBox iconBtnMax;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Panel panelHome;
