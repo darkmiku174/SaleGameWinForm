@@ -91,5 +91,10 @@ namespace SaleGameAPP.View.Login
             formCreateAcc.Show();
             formCreateAcc.FormClosed += new FormClosedEventHandler(OnCloseForm);
         }
+
+        private void iconBtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

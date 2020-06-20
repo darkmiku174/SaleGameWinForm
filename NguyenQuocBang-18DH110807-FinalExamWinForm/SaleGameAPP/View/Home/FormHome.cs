@@ -133,6 +133,8 @@ namespace SaleGameAPP.View.Home
         private void btnHelp_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+            SaleGameAPP.View.Service.FormHelp formHelp = new Service.FormHelp();
+            OpenChildForm(formHelp);
         }
 
         private void picLogo_Click(object sender, EventArgs e)

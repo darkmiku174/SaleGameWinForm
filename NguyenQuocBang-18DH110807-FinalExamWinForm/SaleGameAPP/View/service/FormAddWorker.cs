@@ -64,5 +64,10 @@ namespace SaleGameAPP.View.Service
             Clear();
             formParent.ShowDataGridViewWorker();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -38,18 +38,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAdd = new FontAwesome.Sharp.IconButton();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
-            this.dgvWorker = new System.Windows.Forms.DataGridView();
-            this.btnShowLogin = new FontAwesome.Sharp.IconButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvLoginHis = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnShowLogin = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.dgvWorker = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvLoginHis = new System.Windows.Forms.DataGridView();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -68,8 +68,52 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1144, 75);
+            this.panelTitle.Size = new System.Drawing.Size(1579, 118);
             this.panelTitle.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(886, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 32);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "End:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(427, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 32);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Start:";
+            // 
+            // dateTimeEnd
+            // 
+            this.dateTimeEnd.CustomFormat = "yyyy-MM-dd";
+            this.dateTimeEnd.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeEnd.Location = new System.Drawing.Point(1005, 40);
+            this.dateTimeEnd.Name = "dateTimeEnd";
+            this.dateTimeEnd.Size = new System.Drawing.Size(200, 34);
+            this.dateTimeEnd.TabIndex = 25;
+            this.dateTimeEnd.Value = new System.DateTime(2020, 6, 19, 0, 0, 0, 0);
+            // 
+            // dateTimeStart
+            // 
+            this.dateTimeStart.CustomFormat = "yyyy-MM-dd";
+            this.dateTimeStart.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeStart.Location = new System.Drawing.Point(543, 40);
+            this.dateTimeStart.Name = "dateTimeStart";
+            this.dateTimeStart.Size = new System.Drawing.Size(200, 34);
+            this.dateTimeStart.TabIndex = 24;
+            this.dateTimeStart.Value = new System.DateTime(2020, 6, 19, 0, 0, 0, 0);
             // 
             // pictureBox1
             // 
@@ -80,7 +124,7 @@
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(97, 10, 97, 10);
-            this.pictureBox1.Size = new System.Drawing.Size(148, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(148, 118);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -92,10 +136,33 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 492);
+            this.panel1.Location = new System.Drawing.Point(0, 756);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1144, 114);
+            this.panel1.Size = new System.Drawing.Size(1579, 114);
             this.panel1.TabIndex = 20;
+            // 
+            // btnShowLogin
+            // 
+            this.btnShowLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnShowLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnShowLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowLogin.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnShowLogin.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
+            this.btnShowLogin.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnShowLogin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
+            this.btnShowLogin.IconSize = 28;
+            this.btnShowLogin.Location = new System.Drawing.Point(1090, 37);
+            this.btnShowLogin.Name = "btnShowLogin";
+            this.btnShowLogin.Rotation = 0D;
+            this.btnShowLogin.Size = new System.Drawing.Size(265, 41);
+            this.btnShowLogin.TabIndex = 7;
+            this.btnShowLogin.TabStop = false;
+            this.btnShowLogin.Text = "Show Login";
+            this.btnShowLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnShowLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnShowLogin.UseVisualStyleBackColor = false;
+            this.btnShowLogin.Click += new System.EventHandler(this.btnShowLogin_Click);
             // 
             // btnAdd
             // 
@@ -103,15 +170,15 @@
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAdd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
             this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
             this.btnAdd.IconSize = 28;
-            this.btnAdd.Location = new System.Drawing.Point(64, 37);
+            this.btnAdd.Location = new System.Drawing.Point(121, 37);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Rotation = 0D;
-            this.btnAdd.Size = new System.Drawing.Size(150, 41);
+            this.btnAdd.Size = new System.Drawing.Size(180, 41);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.TabStop = false;
             this.btnAdd.Text = "Add";
@@ -126,15 +193,15 @@
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDelete.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
             this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
             this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
             this.btnDelete.IconSize = 28;
-            this.btnDelete.Location = new System.Drawing.Point(276, 37);
+            this.btnDelete.Location = new System.Drawing.Point(487, 37);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Rotation = 0D;
-            this.btnDelete.Size = new System.Drawing.Size(150, 41);
+            this.btnDelete.Size = new System.Drawing.Size(180, 41);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,7 +239,7 @@
             this.dgvWorker.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvWorker.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvWorker.EnableHeadersVisualStyles = false;
-            this.dgvWorker.Location = new System.Drawing.Point(0, 75);
+            this.dgvWorker.Location = new System.Drawing.Point(0, 118);
             this.dgvWorker.Name = "dgvWorker";
             this.dgvWorker.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -186,40 +253,17 @@
             this.dgvWorker.RowHeadersVisible = false;
             this.dgvWorker.RowTemplate.Height = 24;
             this.dgvWorker.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWorker.Size = new System.Drawing.Size(587, 417);
+            this.dgvWorker.Size = new System.Drawing.Size(743, 638);
             this.dgvWorker.TabIndex = 21;
-            // 
-            // btnShowLogin
-            // 
-            this.btnShowLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnShowLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.btnShowLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowLogin.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnShowLogin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
-            this.btnShowLogin.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnShowLogin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
-            this.btnShowLogin.IconSize = 28;
-            this.btnShowLogin.Location = new System.Drawing.Point(833, 37);
-            this.btnShowLogin.Name = "btnShowLogin";
-            this.btnShowLogin.Rotation = 0D;
-            this.btnShowLogin.Size = new System.Drawing.Size(235, 41);
-            this.btnShowLogin.TabIndex = 7;
-            this.btnShowLogin.TabStop = false;
-            this.btnShowLogin.Text = "Show Login";
-            this.btnShowLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnShowLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowLogin.UseVisualStyleBackColor = false;
-            this.btnShowLogin.Click += new System.EventHandler(this.btnShowLogin_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(587, 75);
+            this.panel3.Location = new System.Drawing.Point(743, 118);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(557, 417);
+            this.panel3.Size = new System.Drawing.Size(836, 638);
             this.panel3.TabIndex = 25;
             // 
             // dgvLoginHis
@@ -252,7 +296,7 @@
             this.dgvLoginHis.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvLoginHis.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvLoginHis.EnableHeadersVisualStyles = false;
-            this.dgvLoginHis.Location = new System.Drawing.Point(602, 75);
+            this.dgvLoginHis.Location = new System.Drawing.Point(789, 118);
             this.dgvLoginHis.Name = "dgvLoginHis";
             this.dgvLoginHis.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -266,58 +310,14 @@
             this.dgvLoginHis.RowHeadersVisible = false;
             this.dgvLoginHis.RowTemplate.Height = 24;
             this.dgvLoginHis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLoginHis.Size = new System.Drawing.Size(542, 417);
+            this.dgvLoginHis.Size = new System.Drawing.Size(790, 638);
             this.dgvLoginHis.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(857, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 23);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "End:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(506, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 23);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Start:";
-            // 
-            // dateTimeEnd
-            // 
-            this.dateTimeEnd.CustomFormat = "yyyy-MM-dd";
-            this.dateTimeEnd.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeEnd.Location = new System.Drawing.Point(923, 23);
-            this.dateTimeEnd.Name = "dateTimeEnd";
-            this.dateTimeEnd.Size = new System.Drawing.Size(200, 27);
-            this.dateTimeEnd.TabIndex = 25;
-            this.dateTimeEnd.Value = new System.DateTime(2020, 6, 19, 0, 0, 0, 0);
-            // 
-            // dateTimeStart
-            // 
-            this.dateTimeStart.CustomFormat = "yyyy-MM-dd";
-            this.dateTimeStart.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeStart.Location = new System.Drawing.Point(587, 22);
-            this.dateTimeStart.Name = "dateTimeStart";
-            this.dateTimeStart.Size = new System.Drawing.Size(200, 27);
-            this.dateTimeStart.TabIndex = 24;
-            this.dateTimeStart.Value = new System.DateTime(2020, 6, 19, 0, 0, 0, 0);
             // 
             // FormWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 606);
+            this.ClientSize = new System.Drawing.Size(1579, 870);
             this.Controls.Add(this.dgvLoginHis);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dgvWorker);
