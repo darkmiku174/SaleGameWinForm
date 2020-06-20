@@ -17,8 +17,12 @@ namespace SaleGameAPP.View.Login
         public FormLogin()
         {
             InitializeComponent();
-            tbUser.Text = Properties.Settings.Default.Username;
-            if (tbUser.Text != "")
+        }
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.Username !="")
+                tbUser.Text = Properties.Settings.Default.Username;
+            if (tbUser.Text != "Username")
             {
                 cbRePass.Checked = true;
                 //tbPass.Text = dp.DeHashPass(tbUser.Text);
@@ -95,6 +99,21 @@ namespace SaleGameAPP.View.Login
         private void iconBtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tbUser_Click(object sender, EventArgs e)
+        {
+            tbUser.Text = "";
+        }
+
+        private void tbPass_Click(object sender, EventArgs e)
+        {
+            tbPass.Text = "";
+            tbPass.PasswordChar = '*';
+        }
+        private void tbPass_TextChanged(object sender, EventArgs e)
+        {
+            tbPass.PasswordChar = '*';
         }
     }
 }
