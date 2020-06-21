@@ -23,6 +23,17 @@ namespace SaleGameAPP.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-3KCQBD3\\SQLEXPRESS;Initial Catalog=SaleGame;Integrated Securi" +
+            "ty=True")]
+        public string SaleGameConnectionString {
+            get {
+                return ((string)(this["SaleGameConnectionString"]));
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -32,17 +43,6 @@ namespace SaleGameAPP.Properties {
             }
             set {
                 this["Username"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-3KCQBD3\\SQLEXPRESS;Initial Catalog=SaleGame;Integrated Securi" +
-            "ty=True")]
-        public string SaleGameConnectionString {
-            get {
-                return ((string)(this["SaleGameConnectionString"]));
             }
         }
     }

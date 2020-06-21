@@ -97,12 +97,6 @@
     <Compile Include="View\Login\FormCreateNewAccount.Designer.cs">
       <DependentUpon>FormCreateNewAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\FormForgetPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Login\FormForgetPassword.Designer.cs">
-      <DependentUpon>FormForgetPassword.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Home\FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,9 +156,6 @@
     </Compile>
     <EmbeddedResource Include="View\Login\FormCreateNewAccount.resx">
       <DependentUpon>FormCreateNewAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Login\FormForgetPassword.resx">
-      <DependentUpon>FormForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Home\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>

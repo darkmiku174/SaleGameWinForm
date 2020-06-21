@@ -47,7 +47,7 @@ Create Table NhanVien
 Create Table TaiKhoan
 (
 	MSNV VARCHAR(20),
-	MatKhau NVARCHAR(128),
+	MatKhau VarBinary(128),
 	Constraint TK_PK Primary Key(MSNV)
 )
 
@@ -158,6 +158,8 @@ Insert into NhanVien
 Values('NV11', N'Huỳnh Kha Tường', 1, 1)
 Insert into NhanVien
 Values('NV12', N'Nguyễn Phước An', 1, 1)
+Insert into NhanVien
+Values('NV13', N'Lê Ngọc Đan Khanh', 1, 1)
 
 --Nhập dữ liệu bảng Account
 Insert into TaiKhoan
@@ -254,8 +256,3 @@ Insert into DonHang
 Values('HD6', 'G013', 1, 0)
 Insert into DonHang
 Values('HD6', 'G009', 1, 0)
-
-select * 
-from LichSuLogin
-where LichSuLogin.Date >= '2019-08-13'
-	 and LichSuLogin.Date <= '2019-08-15'

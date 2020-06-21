@@ -17,76 +17,39 @@ namespace SaleGameAPP.View.Login
         public FormLogin()
         {
             InitializeComponent();
-        }
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-            if(Properties.Settings.Default.Username !="")
-                tbUser.Text = Properties.Settings.Default.Username;
-            if (tbUser.Text != "Username")
-            {
-                cbRePass.Checked = true;
-                //tbPass.Text = dp.DeHashPass(tbUser.Text);
-            }
+            Properties.Settings.Default.Username = "";
+            Properties.Settings.Default.Save();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = tbUser.Text;
             string pass = tbPass.Text;
-            /*if(cbRePass.Checked)
+            DataProvider dp = new DataProvider();
+            bool confirmPass = dp.HashPass(tbUser.Text, tbPass.Text);
+            if (confirmPass)
             {
-                if (dp.DeHashPass(username) == pass)
-                    MessageBox.Show("Login Successful");
-                else
-                    MessageBox.Show("Login Failed");
-            }
-            else
-            {
-                PasswordHash hash = new PasswordHash(pass,salt);
-                byte[] hashBytes = hash.ToArray();
-                //string hashPass = PasswordHash.OutputHash(hashBytes);
-                //if (dp.DeHashPass(username) == hashPass)
-                    //MessageBox.Show("Login Successful");
-                //else
-                    //MessageBox.Show("Login Failed");
-            }*/
-            this.Enabled = false;
-            this.Visible = false;
-            SaleGameAPP.View.Home.FormHome formHome = new SaleGameAPP.View.Home.FormHome();
-            formHome.Show();
-            formHome.FormClosed += new FormClosedEventHandler(OnCloseForm);
-        }
-
-        private void cbRePass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbRePass.Checked)
-            {
+                MessageBox.Show("Successful login");
+                this.Enabled = false;
+                this.Visible = false;
                 Properties.Settings.Default.Username = tbUser.Text;
                 Properties.Settings.Default.Save();
+                SaleGameAPP.View.Home.FormHome formHome = new SaleGameAPP.View.Home.FormHome();
+                formHome.Show();
+                formHome.FormClosed += new FormClosedEventHandler(OnCloseForm);
             }
-
             else
-            {
-                Properties.Settings.Default.Username = "";
-                Properties.Settings.Default.Save();
-            }
+                MessageBox.Show("Fail login");
         }
-
         private void OnCloseForm(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
             this.Visible = true;
+            Properties.Settings.Default.Username = "";
+            Properties.Settings.Default.Save();
+            tbUser.Text = "Username";
+            tbPass.Text = "Password";
+            tbPass.PasswordChar = '\0';
         }
-
-        private void linkForgetPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-            this.Enabled = false;
-            this.Visible = false;
-            FormForgetPassword formForget = new FormForgetPassword();
-            formForget.Show();
-            formForget.FormClosed += new FormClosedEventHandler(OnCloseForm);
-        }
-
         private void linkCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Enabled = false;

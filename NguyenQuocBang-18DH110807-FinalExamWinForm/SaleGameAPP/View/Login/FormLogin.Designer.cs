@@ -32,9 +32,7 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.tbUser = new System.Windows.Forms.TextBox();
             this.tbPass = new System.Windows.Forms.TextBox();
-            this.cbRePass = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.linkForgetPass = new System.Windows.Forms.LinkLabel();
             this.linkCreateAccount = new System.Windows.Forms.LinkLabel();
             this.iconBtnExit = new FontAwesome.Sharp.IconPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -70,7 +68,7 @@
             this.tbUser.Location = new System.Drawing.Point(205, 213);
             this.tbUser.Multiline = true;
             this.tbUser.Name = "tbUser";
-            this.tbUser.Size = new System.Drawing.Size(255, 30);
+            this.tbUser.Size = new System.Drawing.Size(297, 30);
             this.tbUser.TabIndex = 3;
             this.tbUser.Text = "Username";
             this.tbUser.Click += new System.EventHandler(this.tbUser_Click);
@@ -84,32 +82,18 @@
             this.tbPass.Location = new System.Drawing.Point(205, 328);
             this.tbPass.Multiline = true;
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(255, 30);
+            this.tbPass.Size = new System.Drawing.Size(297, 30);
             this.tbPass.TabIndex = 4;
             this.tbPass.Text = "Password";
             this.tbPass.Click += new System.EventHandler(this.tbPass_Click);
             this.tbPass.TextChanged += new System.EventHandler(this.tbPass_TextChanged);
-            // 
-            // cbRePass
-            // 
-            this.cbRePass.AutoSize = true;
-            this.cbRePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.cbRePass.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRePass.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cbRePass.Location = new System.Drawing.Point(205, 401);
-            this.cbRePass.Name = "cbRePass";
-            this.cbRePass.Size = new System.Drawing.Size(223, 27);
-            this.cbRePass.TabIndex = 7;
-            this.cbRePass.Text = "Remember Password";
-            this.cbRePass.UseVisualStyleBackColor = false;
-            this.cbRePass.CheckedChanged += new System.EventHandler(this.cbRePass_CheckedChanged);
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
             this.btnLogin.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(124, 464);
+            this.btnLogin.Location = new System.Drawing.Point(124, 432);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(381, 47);
             this.btnLogin.TabIndex = 8;
@@ -117,31 +101,16 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // linkForgetPass
-            // 
-            this.linkForgetPass.ActiveLinkColor = System.Drawing.Color.Transparent;
-            this.linkForgetPass.AutoSize = true;
-            this.linkForgetPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.linkForgetPass.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkForgetPass.LinkColor = System.Drawing.Color.Transparent;
-            this.linkForgetPass.Location = new System.Drawing.Point(201, 537);
-            this.linkForgetPass.Name = "linkForgetPass";
-            this.linkForgetPass.Size = new System.Drawing.Size(173, 23);
-            this.linkForgetPass.TabIndex = 9;
-            this.linkForgetPass.TabStop = true;
-            this.linkForgetPass.Text = "Forget Password?";
-            this.linkForgetPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForgetPass_LinkClicked);
-            // 
             // linkCreateAccount
             // 
             this.linkCreateAccount.ActiveLinkColor = System.Drawing.Color.Transparent;
             this.linkCreateAccount.AutoSize = true;
             this.linkCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.linkCreateAccount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkCreateAccount.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkCreateAccount.LinkColor = System.Drawing.Color.Transparent;
-            this.linkCreateAccount.Location = new System.Drawing.Point(201, 589);
+            this.linkCreateAccount.Location = new System.Drawing.Point(173, 530);
             this.linkCreateAccount.Name = "linkCreateAccount";
-            this.linkCreateAccount.Size = new System.Drawing.Size(186, 23);
+            this.linkCreateAccount.Size = new System.Drawing.Size(226, 27);
             this.linkCreateAccount.TabIndex = 10;
             this.linkCreateAccount.TabStop = true;
             this.linkCreateAccount.Text = "Create new account";
@@ -216,9 +185,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.iconBtnExit);
-            this.Controls.Add(this.linkForgetPass);
             this.Controls.Add(this.linkCreateAccount);
-            this.Controls.Add(this.cbRePass);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbUser);
@@ -231,7 +198,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
@@ -246,9 +212,7 @@
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.TextBox tbUser;
         private System.Windows.Forms.TextBox tbPass;
-        private System.Windows.Forms.CheckBox cbRePass;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.LinkLabel linkForgetPass;
         private System.Windows.Forms.LinkLabel linkCreateAccount;
         private FontAwesome.Sharp.IconPictureBox iconBtnExit;
         private System.Windows.Forms.Panel panel1;

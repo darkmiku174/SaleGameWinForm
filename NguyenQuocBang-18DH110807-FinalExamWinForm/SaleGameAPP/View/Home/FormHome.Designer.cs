@@ -49,6 +49,7 @@
             this.btnManageBill = new FontAwesome.Sharp.IconButton();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnLogOut = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBtnMin)).BeginInit();
@@ -231,7 +232,7 @@
             this.btnOrder.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnOrder.Rotation = 0D;
             this.btnOrder.Size = new System.Drawing.Size(297, 110);
-            this.btnOrder.TabIndex = 6;
+            this.btnOrder.TabIndex = 7;
             this.btnOrder.Text = "Orders";
             this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -255,7 +256,7 @@
             this.btnGame.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGame.Rotation = 0D;
             this.btnGame.Size = new System.Drawing.Size(297, 110);
-            this.btnGame.TabIndex = 7;
+            this.btnGame.TabIndex = 6;
             this.btnGame.Text = "Game";
             this.btnGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGame.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -337,6 +338,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Black;
+            this.panelMenu.Controls.Add(this.btnLogOut);
             this.panelMenu.Controls.Add(this.btnHelp);
             this.panelMenu.Controls.Add(this.btnManageWorker);
             this.panelMenu.Controls.Add(this.btnManageBill);
@@ -349,6 +351,30 @@
             this.panelMenu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.panelMenu.Size = new System.Drawing.Size(327, 1055);
             this.panelMenu.TabIndex = 4;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnLogOut.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnLogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnLogOut.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnLogOut.IconSize = 48;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(10, 945);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnLogOut.Rotation = 0D;
+            this.btnLogOut.Size = new System.Drawing.Size(297, 110);
+            this.btnLogOut.TabIndex = 12;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // FormHome
             // 
@@ -401,5 +427,6 @@
         private FontAwesome.Sharp.IconButton btnManageBill;
         private FontAwesome.Sharp.IconButton btnHelp;
         private System.Windows.Forms.Panel panelMenu;
+        private FontAwesome.Sharp.IconButton btnLogOut;
     }
 }

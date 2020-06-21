@@ -14,7 +14,7 @@ namespace SaleGameAPP.View.Home
 {
     public partial class FormHome : Form
     {
-        private static string mSNV = "NV01";
+        private static string mSNV = "";
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
@@ -32,6 +32,12 @@ namespace SaleGameAPP.View.Home
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            mSNV = Properties.Settings.Default.Username;
+            if (mSNV !="NV01")
+            {
+                this.btnManageWorker.Visible = false;
+                this.btnManageBill.Visible = false;
+            }
         }
         private struct RGBColors
         {
@@ -165,6 +171,11 @@ namespace SaleGameAPP.View.Home
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbTime.Text = DateTime.Now.ToString();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
