@@ -161,9 +161,7 @@ Values('NV12', N'Nguyễn Phước An', 1, 1)
 Insert into NhanVien
 Values('NV13', N'Lê Ngọc Đan Khanh', 1, 1)
 
---Nhập dữ liệu bảng Account
-Insert into TaiKhoan
-Values('NV01',N'Bangbang@123')
+--Nhập dữ liệu bảng Account (Nhập bằng app)
 
 --Nhập dữ liệu login logout
 Insert into LichSuLogin
@@ -256,3 +254,6 @@ Insert into DonHang
 Values('HD6', 'G013', 1, 0)
 Insert into DonHang
 Values('HD6', 'G009', 1, 0)
+
+select * from LichSuLogin
+delete from LichSuLogin where id in (23,24,25,26)

@@ -162,6 +162,9 @@ namespace SaleGameAPP.View.Home
         }
         private void iconBtnExit_Click(object sender, EventArgs e)
         {
+            DataProvider dp = new DataProvider();
+            int id = dp.AutoIdLogin();
+            dp.HistoryLogIn(id, mSNV, "Logout", DateTime.Now);
             Application.Exit();
         }
         private void iconBtnMin_Click(object sender, EventArgs e)
@@ -175,7 +178,16 @@ namespace SaleGameAPP.View.Home
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Do you want to log out?", "Warning", MessageBoxButtons.OKCancel);
+            if(result==DialogResult.OK)
+            {
+                MessageBox.Show("GoodBye!");
+                DataProvider dp = new DataProvider();
+                int id = dp.AutoIdLogin();
+                dp.HistoryLogIn(id, mSNV, "Logout", DateTime.Now);
+                this.Close();
+            }
+            
         }
     }
 }

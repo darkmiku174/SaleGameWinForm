@@ -815,5 +815,57 @@ namespace SaleGameAPP
             }
             return dttb;
         }
+        public void HistoryLogIn(int id, string MSNV, string Event, DateTime dateTime)
+        {
+            string queryString =
+                @"Insert into LichSuLogin 
+                  Values(@id, @MSNV, @Event, @Date, @Time)";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@MSNV", MSNV);
+                command.Parameters.AddWithValue("@Event", Event);
+                command.Parameters.AddWithValue("@Date", dateTime.Date.ToString("d"));
+                command.Parameters.AddWithValue("@Time", dateTime.TimeOfDay);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public int AutoIdLogin()
+        {
+            string queryString =
+                @"Select top 1 ID From LichSuLogin Order By ID Desc";
+            int lastID = 0;
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lastID = Int32.Parse(reader[0].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lastID + 1;
+        }
     }
 }

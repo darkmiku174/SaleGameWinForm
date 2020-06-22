@@ -29,6 +29,8 @@ namespace SaleGameAPP.View.Login
             if (confirmPass)
             {
                 MessageBox.Show("Successful login");
+                int id = dp.AutoIdLogin();
+                dp.HistoryLogIn(id, tbUser.Text, "Login", DateTime.Now);
                 this.Enabled = false;
                 this.Visible = false;
                 Properties.Settings.Default.Username = tbUser.Text;
