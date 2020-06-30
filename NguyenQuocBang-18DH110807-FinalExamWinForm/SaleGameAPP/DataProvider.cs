@@ -580,10 +580,10 @@ namespace SaleGameAPP
         {
             DataTable dttb = new DataTable();
             string queryString =
-                @"Select MSDH, TenNV, NgayDat 
+                @"Select Top 20(MSDH), TenNV, NgayDat 
                   From HoaDon, NhanVien 
                   Where HoaDon.MSNV=NhanVien.MSNV
-                  Order By MSDH Desc";
+                  Order By NgayDat Desc";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -750,8 +750,30 @@ namespace SaleGameAPP
                 }
             }
         }
+        private void DeleteAccWorker(string MSNV)
+        {
+            string queryString =
+                @"Delete from TaiKhoan Where MSNV=@MSNV";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@MSNV", MSNV);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
         public void DeleteWorker(string MSNV)
         {
+            DeleteAccWorker(MSNV);
             string queryString =
                 @"Delete from NhanVien Where MSNV=@MSNV";
             using (SqlConnection connection =
