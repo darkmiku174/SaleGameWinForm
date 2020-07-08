@@ -65,10 +65,5 @@ namespace SaleGameAPP.View.Service
         {
             ShowDataGridViewHistoryLogin();
         }
-
-        private void btnSalary_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

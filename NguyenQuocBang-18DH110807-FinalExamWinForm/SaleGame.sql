@@ -291,6 +291,190 @@ Insert into LichSuLogin
 Values(21,'NV03', 'Login','2019/8/17', '14:10:05')
 Insert into LichSuLogin
 Values(22,'NV03','Logout','2019/8/17', '21:00:15')
+Insert into LichSuLogin
+Values(23,'NV12','Login','2019/8/18', '7:32:43')
+Insert into LichSuLogin
+Values(24,'NV12','Logout','2019/8/18', '14:00:23')
+Insert into LichSuLogin
+Values(25,'NV07','Login','2019/8/18', '14:04:45')
+Insert into LichSuLogin
+Values(26,'NV07','Logout','2019/8/18', '21:00:07')
+Insert into LichSuLogin
+Values(27,'NV02','Login','2019/8/19', '7:35:42')
+Insert into LichSuLogin
+Values(28,'NV02','Logout','2019/8/19', '14:01:25')
+Insert into LichSuLogin
+Values(29,'NV05','Login','2019/8/19', '14:05:07')
+Insert into LichSuLogin
+Values(30,'NV05','Logout','2019/8/19', '21:06:07')
+Insert into LichSuLogin
+Values(31,'NV02','Login','2019/8/20', '7:29:53')
+Insert into LichSuLogin
+Values(32,'NV02','Logout','2019/8/20', '14:01:25')
+Insert into LichSuLogin
+Values(33,'NV11','Login','2019/8/20', '14:05:07')
+Insert into LichSuLogin
+Values(34,'NV11','Logout','2019/8/20', '21:06:07')
+Insert into LichSuLogin
+Values(35,'NV04','Login','2019/8/21', '7:29:53')
+Insert into LichSuLogin
+Values(36,'NV04','Logout','2019/8/21', '14:01:25')
+Insert into LichSuLogin
+Values(37,'NV12','Login','2019/8/21', '14:05:07')
+Insert into LichSuLogin
+Values(38,'NV12','Logout','2019/8/21', '21:06:07')
+Insert into LichSuLogin
+Values(39,'NV03','Login','2019/8/22', '7:29:53')
+Insert into LichSuLogin
+Values(40,'NV03','Logout','2019/8/22', '14:01:25')
+Insert into LichSuLogin
+Values(41,'NV02','Login','2019/8/22', '14:05:07')
+Insert into LichSuLogin
+Values(42,'NV02','Logout','2019/8/22', '21:06:07')
+Insert into LichSuLogin
+Values(43,'NV05','Login','2019/8/23', '7:29:53')
+Insert into LichSuLogin
+Values(44,'NV05','Logout','2019/8/23', '14:01:25')
+Insert into LichSuLogin
+Values(45,'NV04','Login','2019/8/23', '14:05:07')
+Insert into LichSuLogin
+Values(46,'NV04','Logout','2019/8/23', '21:06:07')
+Insert into LichSuLogin
+Values(47,'NV06','Login','2019/8/24', '7:29:53')
+Insert into LichSuLogin
+Values(48,'NV06','Logout','2019/8/24', '14:01:25')
+Insert into LichSuLogin
+Values(49,'NV07','Login','2019/8/24', '14:05:07')
+Insert into LichSuLogin
+Values(50,'NV07','Logout','2019/8/24', '21:06:07')
+Insert into LichSuLogin
+Values(51,'NV05','Login','2019/8/25', '7:29:53')
+Insert into LichSuLogin
+Values(52,'NV05','Logout','2019/8/25', '14:01:25')
+Insert into LichSuLogin
+Values(53,'NV08','Login','2019/8/25', '14:05:07')
+Insert into LichSuLogin
+Values(54,'NV08','Logout','2019/8/25', '21:06:07')
+Insert into LichSuLogin
+Values(55,'NV13','Login','2019/8/26', '7:29:53')
+Insert into LichSuLogin
+Values(56,'NV13','Logout','2019/8/26', '14:01:25')
+Insert into LichSuLogin
+Values(57,'NV09','Login','2019/8/26', '14:05:07')
+Insert into LichSuLogin
+Values(58,'NV09','Logout','2019/8/26', '21:06:07')
+Insert into LichSuLogin
+Values(59,'NV04','Login','2019/8/27', '7:29:53')
+Insert into LichSuLogin
+Values(60,'NV04','Logout','2019/8/27', '14:01:25')
+Insert into LichSuLogin
+Values(61,'NV12','Login','2019/8/27', '14:05:07')
+Insert into LichSuLogin
+Values(62,'NV12','Logout','2019/8/27', '21:06:07')
+Insert into LichSuLogin
+Values(63,'NV10','Login','2019/8/28', '7:29:53')
+Insert into LichSuLogin
+Values(64,'NV10','Logout','2019/8/28', '14:01:25')
+Insert into LichSuLogin
+Values(65,'NV12','Login','2019/8/28', '14:05:07')
+Insert into LichSuLogin
+Values(66,'NV12','Logout','2019/8/28', '21:06:07')
+Insert into LichSuLogin
+Values(67,'NV11','Login','2019/8/29', '7:29:53')
+Insert into LichSuLogin
+Values(68,'NV11','Logout','2019/8/29', '14:01:25')
+Insert into LichSuLogin
+Values(69,'NV03','Login','2019/8/29', '14:05:07')
+Insert into LichSuLogin
+Values(70,'NV03','Logout','2019/8/29', '21:06:07')
+Insert into LichSuLogin
+Values(71,'NV02','Login','2019/8/30', '7:29:53')
+Insert into LichSuLogin
+Values(72,'NV02','Logout','2019/8/30', '14:01:25')
+Insert into LichSuLogin
+Values(73,'NV05','Login','2019/8/30', '14:05:07')
+Insert into LichSuLogin
+Values(74,'NV05','Logout','2019/8/30', '21:06:07')
+Insert into LichSuLogin
+Values(75,'NV07','Login','2019/8/31', '7:29:53')
+Insert into LichSuLogin
+Values(76,'NV07','Logout','2019/8/31', '14:01:25')
+Insert into LichSuLogin
+Values(77,'NV09','Login','2019/8/31', '14:05:07')
+Insert into LichSuLogin
+Values(78,'NV09','Logout','2019/8/31', '21:06:07')
+Insert into LichSuLogin
+Values(79,'NV12','Login','2019/9/1', '7:29:53')
+Insert into LichSuLogin
+Values(80,'NV12','Logout','2019/9/1', '14:01:25')
+Insert into LichSuLogin
+Values(81,'NV10','Login','2019/9/1', '14:05:07')
+Insert into LichSuLogin
+Values(82,'NV10','Logout','2019/9/1', '21:06:07')
+Insert into LichSuLogin
+Values(83,'NV08','Login','2019/9/2', '7:29:53')
+Insert into LichSuLogin
+Values(84,'NV08','Logout','2019/9/2', '14:01:25')
+Insert into LichSuLogin
+Values(85,'NV10','Login','2019/9/2', '14:05:07')
+Insert into LichSuLogin
+Values(86,'NV10','Logout','2019/9/2', '21:06:07')
+Insert into LichSuLogin
+Values(87,'NV03','Login','2019/9/3', '7:29:53')
+Insert into LichSuLogin
+Values(88,'NV03','Logout','2019/9/3', '14:01:25')
+Insert into LichSuLogin
+Values(89,'NV09','Login','2019/9/3', '14:05:07')
+Insert into LichSuLogin
+Values(90,'NV09','Logout','2019/9/3', '21:06:07')
+Insert into LichSuLogin
+Values(91,'NV07','Login','2019/9/4', '7:29:53')
+Insert into LichSuLogin
+Values(92,'NV07','Logout','2019/9/4', '14:01:25')
+Insert into LichSuLogin
+Values(93,'NV04','Login','2019/9/4', '14:05:07')
+Insert into LichSuLogin
+Values(94,'NV04','Logout','2019/9/4', '21:06:07')
+Insert into LichSuLogin
+Values(95,'NV11','Login','2019/9/5', '7:29:53')
+Insert into LichSuLogin
+Values(96,'NV11','Logout','2019/9/5', '14:01:25')
+Insert into LichSuLogin
+Values(97,'NV03','Login','2019/9/5', '14:05:07')
+Insert into LichSuLogin
+Values(98,'NV03','Logout','2019/9/5', '21:06:07')
+Insert into LichSuLogin
+Values(99,'NV13','Login','2019/9/6', '7:29:53')
+Insert into LichSuLogin
+Values(100,'NV13','Logout','2019/9/6', '14:01:25')
+Insert into LichSuLogin
+Values(101,'NV10','Login','2019/9/6', '14:05:07')
+Insert into LichSuLogin
+Values(102,'NV10','Logout','2019/9/6', '21:06:07')
+Insert into LichSuLogin
+Values(103,'NV07','Login','2019/9/7', '7:29:53')
+Insert into LichSuLogin
+Values(104,'NV07','Logout','2019/9/7', '14:01:25')
+Insert into LichSuLogin
+Values(105,'NV05','Login','2019/9/7', '14:05:07')
+Insert into LichSuLogin
+Values(106,'NV05','Logout','2019/9/7', '21:06:07')
+Insert into LichSuLogin
+Values(107,'NV04','Login','2019/9/8', '7:29:53')
+Insert into LichSuLogin
+Values(108,'NV04','Logout','2019/9/8', '14:01:25')
+Insert into LichSuLogin
+Values(109,'NV02','Login','2019/9/8', '14:05:07')
+Insert into LichSuLogin
+Values(110,'NV02','Logout','2019/9/8', '21:06:07')
+Insert into LichSuLogin
+Values(111,'NV12','Login','2019/9/9', '7:29:53')
+Insert into LichSuLogin
+Values(112,'NV12','Logout','2019/9/9', '14:01:25')
+Insert into LichSuLogin
+Values(113,'NV06','Login','2019/9/9', '14:05:07')
+Insert into LichSuLogin
+Values(114,'NV06','Logout','2019/9/9', '21:06:07')
 
 --Nhập dữ liệu bảng hoá đơn
 Insert into HoaDon
@@ -305,7 +489,6 @@ Insert into HoaDon
 Values('HD5', 'NV04', '2019/8/23 10:24:18')
 Insert into HoaDon
 Values('HD6', 'NV05', '2019/8/25 13:07:57')
-
 Insert into HoaDon
 Values('HD7', 'NV09', '2019/8/26 15:15:57')
 Insert into HoaDon
@@ -334,6 +517,27 @@ Insert into HoaDon
 Values('HD19', 'NV07', '2019/9/4 11:16:45')
 Insert into HoaDon
 Values('HD20', 'NV04', '2019/9/4 19:27:31')
+Insert into HoaDon
+Values('HD21', 'NV03', '2019/9/5 15:27:55')
+Insert into HoaDon
+Values('HD22', 'NV03', '2019/9/5 19:51:07')
+Insert into HoaDon
+Values('HD23', 'NV13', '2019/9/6 11:05:15')
+Insert into HoaDon
+Values('HD24', 'NV10', '2019/9/6 16:09:39')
+Insert into HoaDon
+Values('HD25', 'NV07', '2019/9/7 9:13:06')
+Insert into HoaDon
+Values('HD26', 'NV05', '2019/9/7 20:15:43')
+Insert into HoaDon
+Values('HD27', 'NV04', '2019/9/8 11:03:12')
+Insert into HoaDon
+Values('HD28', 'NV02', '2019/9/8 14:57:26')
+Insert into HoaDon
+Values('HD29', 'NV06', '2019/9/9 20:27:31')
+Insert into HoaDon
+Values('HD30', 'NV06', '2019/9/9 20:30:07')
+
 
 --Nhập dữ liệu bảng đơn hàng
 Insert into DonHang
@@ -366,14 +570,131 @@ Insert into DonHang
 Values('HD6', 'G013', 1, 0)
 Insert into DonHang
 Values('HD6', 'G009', 1, 0)
-
-select * from LichSuLogin
-
-delete from LichSuLogin where id in (23,24,25,26,27,28,29,30)
-
-select * from game where TinhTrang=0
-
-Select Top 15(MSDH), TenNV, NgayDat
-From HoaDon, NhanVien 
-Where HoaDon.MSNV=NhanVien.MSNV
-Order By NgayDat Desc
+Insert into DonHang
+Values('HD7', 'G059', 1, 15)
+Insert into DonHang
+Values('HD7', 'G041', 1, 30)
+Insert into DonHang
+Values('HD7', 'G003', 1, 0)
+Insert into DonHang
+Values('HD7', 'G037', 2, 25)
+Insert into DonHang
+Values('HD7', 'G015', 1, 0)
+Insert into DonHang
+Values('HD8', 'G012', 1, 0)
+Insert into DonHang
+Values('HD8', 'G067', 3, 35)
+Insert into DonHang
+Values('HD9', 'G056', 2, 0)
+Insert into DonHang
+Values('HD10', 'G069', 1, 0)
+Insert into DonHang
+Values('HD10', 'G067', 1, 0)
+Insert into DonHang
+Values('HD10', 'G043', 1, 5)
+Insert into DonHang
+Values('HD11', 'G056', 2, 0)
+Insert into DonHang
+Values('HD11', 'G033', 1, 0)
+Insert into DonHang
+Values('HD11', 'G064', 1, 0)
+Insert into DonHang
+Values('HD11', 'G069', 1, 0)
+Insert into DonHang
+Values('HD12', 'G013', 3, 50)
+Insert into DonHang
+Values('HD12', 'G041', 1, 20)
+Insert into DonHang
+Values('HD12', 'G036', 2, 20)
+Insert into DonHang
+Values('HD12', 'G047', 1, 20)
+Insert into DonHang
+Values('HD10', 'G004', 1, 10)
+Insert into DonHang
+Values('HD12', 'G001', 1, 10)
+Insert into DonHang
+Values('HD13', 'G011', 1, 0)
+Insert into DonHang
+Values('HD14', 'G021', 1, 0)
+Insert into DonHang
+Values('HD15', 'G010', 1, 40)
+Insert into DonHang
+Values('HD16', 'G051', 1, 0)
+Insert into DonHang
+Values('HD16', 'G063', 1, 0)
+Insert into DonHang
+Values('HD16', 'G014', 2, 35)
+Insert into DonHang
+Values('HD17', 'G005', 1, 0)
+Insert into DonHang
+Values('HD17', 'G007', 1, 0)
+Insert into DonHang
+Values('HD18', 'G043', 1, 50)
+Insert into DonHang
+Values('HD19', 'G038', 1, 0)
+Insert into DonHang
+Values('HD19', 'G018', 1, 0)
+Insert into DonHang
+Values('HD19', 'G021', 1, 0)
+Insert into DonHang
+Values('HD19', 'G035', 1, 0)
+Insert into DonHang
+Values('HD19', 'G007', 1, 0)
+Insert into DonHang
+Values('HD20', 'G001', 1, 0)
+Insert into DonHang
+Values('HD20', 'G002', 1, 0)
+Insert into DonHang
+Values('HD21', 'G002', 1, 0)
+Insert into DonHang
+Values('HD21', 'G003', 1, 0)
+Insert into DonHang
+Values('HD21', 'G004', 1, 0)
+Insert into DonHang
+Values('HD22', 'G012', 1, 50)
+Insert into DonHang
+Values('HD22', 'G006', 1, 10)
+Insert into DonHang
+Values('HD23', 'G010', 3, 0)
+Insert into DonHang
+Values('HD23', 'G017', 1, 0)
+Insert into DonHang
+Values('HD23', 'G002', 4, 20)
+Insert into DonHang
+Values('HD23', 'G052', 1, 0)
+Insert into DonHang
+Values('HD24', 'G022', 1, 0)
+Insert into DonHang
+Values('HD24', 'G023', 4, 0)
+Insert into DonHang
+Values('HD24', 'G029', 1, 20)
+Insert into DonHang
+Values('HD24', 'G030', 1, 0)
+Insert into DonHang
+Values('HD25', 'G017', 2, 0)
+Insert into DonHang
+Values('HD25', 'G023', 1, 0)
+Insert into DonHang
+Values('HD25', 'G019', 1, 0)
+Insert into DonHang
+Values('HD26', 'G049', 5, 0)
+Insert into DonHang
+Values('HD26', 'G001', 1, 10)
+Insert into DonHang
+Values('HD26', 'G063', 2, 30)
+Insert into DonHang
+Values('HD26', 'G019', 2, 0)
+Insert into DonHang
+Values('HD27', 'G035', 1, 30)
+Insert into DonHang
+Values('HD27', 'G037', 1, 0)
+Insert into DonHang
+Values('HD27', 'G045', 1, 0)
+Insert into DonHang
+Values('HD27', 'G007', 2, 40)
+Insert into DonHang
+Values('HD28', 'G021', 1, 20)
+Insert into DonHang
+Values('HD29', 'G017', 1, 0)
+Insert into DonHang
+Values('HD30', 'G049', 2, 75)

@@ -490,7 +490,8 @@ namespace SaleGameAPP
                 @"Select DonHang.MSHH, TenGame, Gia, SoLuong, TiLeGiam, Gia*SoLuong*(100-TiLeGiam)/100 As ThanhTien 
                   From DonHang, Game 
                   Where DonHang.MSHH=Game.MSHH 
-	                and MSDH=@MSDH";
+	                and MSDH=@MSDH
+                  Order by DonHang.MSHH Asc";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -632,7 +633,8 @@ namespace SaleGameAPP
                 @"Select MSDH, TenNV, NgayDat 
                   From HoaDon, NhanVien 
                   Where HoaDon.MSNV=NhanVien.MSNV
-                        And "+ "NgayDat between " + "'"+ngayDat+"'" +" and "+ "'"+ngayDat + " 23:59:59'";
+                        And "+ "NgayDat between " + "'"+ngayDat+"'" +" and "+ "'"+ngayDat + " 23:59:59' "+
+                  "Order By NgayDat Asc";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -655,7 +657,8 @@ namespace SaleGameAPP
                 @"Select MSDH, TenNV, NgayDat 
                   From HoaDon, NhanVien 
                   Where HoaDon.MSNV=NhanVien.MSNV
-                        And " + "NgayDat between " + "'" + start + "'" + " and " + "'" + end + " 23:59:59'";
+                        And " + "NgayDat between " + "'" + start + "'" + " and " + "'" + end + " 23:59:59' "+
+                 "Order By NgayDat Asc";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -797,7 +800,7 @@ namespace SaleGameAPP
         {
             DataTable dttb = new DataTable();
             string queryString =
-                @"select * from LichSuLogin order by ID Desc";
+                @"select top (20) * from LichSuLogin order by ID Desc";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
